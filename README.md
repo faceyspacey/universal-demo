@@ -68,5 +68,5 @@ If you have a solution to reconnecting the client to HMR after `babel-watch` rel
 
 
 ## Contributing
-We use [commitizen](https://github.com/commitizen/cz-cli), so run `npm run commit` to make commits. A command-line form will appear, requiring you answer a few questions to automatically produce a nicely formatted commit.
+We use [commitizen](https://github.com/commitizen/cz-cli), so run `npm run cm` to make commits. A command-line form will appear, requiring you answer a few questions to automatically produce a nicely formatted commit.
 
