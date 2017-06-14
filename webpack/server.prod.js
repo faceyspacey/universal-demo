@@ -1,10 +1,8 @@
-const fs = require('fs')
 const path = require('path')
 const webpack = require('webpack')
 
 const res = p => path.resolve(__dirname, p)
 
-const modeModules = res('../node_modules')
 const entry = res('../server/render.js')
 const output = res('../buildServer')
 
