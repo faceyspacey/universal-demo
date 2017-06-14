@@ -4349,11 +4349,11 @@ react-proxy@^3.0.0-alpha.0:
   dependencies:
     lodash "^4.6.1"
 
-react-universal-component@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/react-universal-component/-/react-universal-component-1.2.1.tgz#cdce7caa4dd931cd1b727e35fb435067d981855a"
+react-universal-component@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/react-universal-component/-/react-universal-component-1.2.5.tgz#66a07ca4fcecb1d7e53e6382078580e06eed8e86"
   dependencies:
-    require-universal-module "^1.2.5"
+    require-universal-module "^1.2.8"
 
 react@^15.4.2:
   version "15.4.2"
@@ -4618,9 +4618,9 @@ require-uncached@^1.0.2:
     caller-path "^0.1.0"
     resolve-from "^1.0.0"
 
-require-universal-module@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/require-universal-module/-/require-universal-module-1.2.5.tgz#d9689400e1937b28cfef7e6cd0b925a150de4700"
+require-universal-module@^1.2.8:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/require-universal-module/-/require-universal-module-1.2.8.tgz#a333b75f4364832361d4554f43c46b7b6afebecb"
 
 resolve-dir@^0.1.0:
   version "0.1.1"
@@ -5441,9 +5441,9 @@ webpack-dev-middleware-multi-compiler@^1.0.0:
     path-is-absolute "^1.0.0"
     range-parser "^1.0.3"
 
-webpack-flush-chunks@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/webpack-flush-chunks/-/webpack-flush-chunks-1.0.4.tgz#2986ef488f906b7876b3d296b9d9b7ab8dd8024c"
+webpack-flush-chunks@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/webpack-flush-chunks/-/webpack-flush-chunks-1.0.10.tgz#f5a89aa5b1c023347b48619966b787298246f174"
 
 webpack-hot-middleware@^2.17.1:
   version "2.17.1"
