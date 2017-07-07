@@ -29,8 +29,8 @@ const externals = fs
 module.exports = {
   name: 'server',
   target: 'node',
-  devtool: 'source-map',
-  // devtool: 'eval',
+  // devtool: 'source-map',
+  devtool: 'eval',
   entry: [entry],
   externals,
   output: {
