@@ -10,6 +10,7 @@ module.exports = {
   entry: [path.resolve(__dirname, '../src/index.js')],
   output: {
     filename: '[name].[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].js',
     path: path.resolve(__dirname, '../buildClient'),
     publicPath: '/static/'
   },
