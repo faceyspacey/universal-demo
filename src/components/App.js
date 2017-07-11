@@ -13,7 +13,7 @@ export default class App extends React.Component {
   // set `show` to `false` to test how asynchronously loaded chunks behave,
   // specifically: CHECK YOUR NETWORK TAB TO SEE 2 FILES (JS + CSS) RECEIVED
   state = {
-    show: false
+    show: true
   }
 
   componentDidMount() {
