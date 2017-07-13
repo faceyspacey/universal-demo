@@ -1,6 +1,7 @@
 import React from 'react'
 import universal from 'react-universal-component'
 import styles from '../css/App.css'
+import { Route, Link } from 'react-router-dom'
 
 const UniversalExample = universal(() => import('./Example'), {
   resolve: () => require.resolveWeak('./Example'),
@@ -8,29 +9,24 @@ const UniversalExample = universal(() => import('./Example'), {
   minDelay: 500
 })
 
+const UniversalAsync = universal(() => import('./Async'), {
+  resolve: () => require.resolveWeak('./Async'),
+  chunkName: 'Async', // babel-plugin-dual-import automatically sets chunkName based on path
+  minDelay: 500
+})
+
 export default class App extends React.Component {
-  // set `show` to `true` to see dynamic chunks served by initial request
-  // set `show` to `false` to test how asynchronously loaded chunks behave,
-  // specifically: CHECK YOUR NETWORK TAB TO SEE 2 FILES (JS + CSS) RECEIVED
-  state = {
-    show: true
-  }
-
-  componentDidMount() {
-    if (this.state.show) return
-
-    setTimeout(() => {
-      console.log('now showing <Example />')
-      this.setState({ show: true })
-    }, 1500)
-  }
-
   render() {
     return (
       <div>
-        <h1 className={styles.title}>Hello World!</h1>
-        {this.state.show && <UniversalExample page='Example' />}
-        {!this.state.show && 'Async Component Not Requested Yet'}
+        <div>
+          <ul>
+            <li><Link to={'/'}>Home</Link></li>
+            <li><Link to={'/async'}>Async Route</Link></li>
+          </ul>
+          <Route exact path={'/async'} component={UniversalAsync} />
+          <Route exact path={'/'} component={UniversalExample} />
+        </div>
       </div>
     )
   }
