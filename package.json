@@ -19,8 +19,10 @@
   },
   "dependencies": {
     "express": "^4.15.2",
+    "favicons-webpack-plugin": "0.0.7",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-router-dom": "next",
     "react-universal-component": "latest",
     "webpack-dev-middleware": "^1.11.0",
     "webpack-flush-chunks": "^1.1.10"
