@@ -29,7 +29,7 @@ export default class App extends React.Component {
     return (
       <div>
         <h1 className={styles.title}>Hello World!</h1>
-        {this.state.show && <UniversalExample page='Example' />}
+        {this.state.show && <UniversalExample />}
         {!this.state.show && 'Async Component Not Requested Yet'}
       </div>
     )
