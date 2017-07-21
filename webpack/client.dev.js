@@ -1,5 +1,5 @@
 const path = require('path')
-const webpack = require('webpack')
+const webpack = require('../../webpack')
 const WriteFilePlugin = require('write-file-webpack-plugin') // here so you can see what chunks are built
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin')
 

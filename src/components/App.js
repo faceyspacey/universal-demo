@@ -2,11 +2,26 @@ import React from 'react'
 import universal from 'react-universal-component'
 import styles from '../css/App.css'
 
+const Page = 'Example'
+
 const UniversalExample = universal(() => import('./Example'), {
   resolve: () => require.resolveWeak('./Example'),
   chunkName: 'Example', // babel-plugin-dual-import automatically sets chunkName based on path
   minDelay: 500
 })
+
+// const asyncWork = props =>
+//   import(/* webpackChunkName: 'async/[request]' */ `./${props.page}`)
+
+// const resolve = props =>
+//   require.context('./', true, /^\.\/.*$/, true, '[request]')
+//     .resolve(`${props.page}`)
+
+// const UniversalExample = universal(asyncWork, {
+//   resolve,
+//   chunkName: props => `${props.page}`,
+//   minDelay: 500
+// })
 
 export default class App extends React.Component {
   // set `show` to `true` to see dynamic chunks served by initial request
