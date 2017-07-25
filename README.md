@@ -16,6 +16,7 @@ This is a boilerplate example for how to use the *Universal* family of packages:
 
 git clone https://github.com/faceyspacey/flush-chunks-boilerplate-webpack-chunknames.git
 cd flush-chunks-boilerplate-webpack-chunknames
+git checkout resolve-weak
 yarn
 ```
 
