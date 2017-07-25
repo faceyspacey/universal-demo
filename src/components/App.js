@@ -5,14 +5,16 @@ import universalImport from 'babel-plugin-universal-import/universalImport'
 import styles from '../css/App.css'
 
 // 1. using require.resolveWeak
-// const asyncWork = () => universalImport({
-//   chunkName: ({ page }) => page,
-//   resolve: ({ page }) => require.resolveWeak(`./${page}`),
-//   load: ({ page }) => Promise.all([
-//     import(/* webpackChunkName: '[request]' */ `./${page}`),
-//     importCss(page)
-//   ]).then(proms => proms[0])
-// })
+const asyncWork = () =>
+  universalImport({
+    chunkName: ({ page }) => page,
+    resolve: ({ page }) => require.resolveWeak(`./${page}`),
+    load: ({ page }) =>
+      Promise.all([
+        import(/* webpackChunkName: '[request]' */ `./${page}`),
+        importCss(page)
+      ]).then(proms => proms[0])
+  })
 
 // 2. using require.context
 // NOTE: triggers a warning, not sure if you want to keep the warning??
@@ -46,7 +48,7 @@ import styles from '../css/App.css'
 // })
 
 // 5. add "plugins": ["universal-import"] to .babelrc and use just this :)
-const asyncWork = ({ page }) => import(`./${page}`)
+// const asyncWork = ({ page }) => import(`./${page}`)
 
 const UniversalComponent = universal(asyncWork, { minDelay: 500 })
 

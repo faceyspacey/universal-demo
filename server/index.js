@@ -38,9 +38,7 @@ if (DEV) {
 }
 else {
   webpack([clientConfigProd, serverConfigProd]).run((err, stats) => {
-    // const clientStats = require('../buildClient/stats.json')
     const clientStats = stats.toJson().children[0]
-    console.log('CLIENT STATS', clientStats)
     const serverRender = require('../buildServer/main.js').default
 
     app.use(publicPath, express.static(outputPath))
