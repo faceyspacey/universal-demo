@@ -1,27 +1,54 @@
 import React from 'react'
 import universal from 'react-universal-component'
+import importCss from 'babel-plugin-universal-import/importCss'
+import universalImport from 'babel-plugin-universal-import/universalImport'
 import styles from '../css/App.css'
 
-const Page = 'Example'
-
-const UniversalExample = universal(() => import('./Example'), {
-  resolve: () => require.resolveWeak('./Example'),
-  chunkName: 'Example', // babel-plugin-dual-import automatically sets chunkName based on path
-  minDelay: 500
-})
-
-// const asyncWork = props =>
-//   import(/* webpackChunkName: 'async/[request]' */ `./${props.page}`)
-
-// const resolve = props =>
-//   require.context('./', true, /^\.\/.*$/, true, '[request]')
-//     .resolve(`${props.page}`)
-
-// const UniversalExample = universal(asyncWork, {
-//   resolve,
-//   chunkName: props => `${props.page}`,
-//   minDelay: 500
+// 1. using require.resolveWeak
+// const asyncWork = () => universalImport({
+//   chunkName: ({ page }) => page,
+//   resolve: ({ page }) => require.resolveWeak(`./${page}`),
+//   load: ({ page }) => Promise.all([
+//     import(/* webpackChunkName: '[request]' */ `./${page}`),
+//     importCss(page)
+//   ]).then(proms => proms[0])
 // })
+
+// 2. using require.context
+// NOTE: triggers a warning, not sure if you want to keep the warning??
+// const asyncWork = () => universalImport({
+//   chunkName: ({ page }) => page,
+//   resolve: ({ page }) => require.context('./', true, /^\.\/.*$/, 'weak').resolve(`./${page}`),
+//   load: ({ page }) => Promise.all([
+//     import(/* webpackChunkName: '[request]' */ `./${page}`),
+//     importCss(page)
+//   ]).then(proms => proms[0])
+// })
+
+// 3. using eager-weak
+// const asyncWork = () => universalImport({
+//   chunkName: 'Foo', // triggers chunk being served
+//   // but we don't provide resolve to prevent load from being called
+//   load: () => Promise.all([
+//     import(/* webpackChunkName: 'Foo', webpackMode: 'eager-weak' */ './Foo'),
+//     importCss('Foo')
+//   ]).then(proms => proms[0])
+// })
+
+// 4. using eager-weak (with context)
+// const asyncWork = () => universalImport({
+//   chunkName: ({ page }) => page, // triggers chunk being served
+//   // but we don't provide resolve to prevent load from being called
+//   load: ({ page }) => Promise.all([
+//     import(/* webpackChunkName: '[request]', webpackMode: 'eager-weak' */ `./${page}`),
+//     importCss(page)
+//   ]).then(proms => proms[0])
+// })
+
+// 5. add "plugins": ["universal-import"] to .babelrc and use just this :)
+const asyncWork = ({ page }) => import(`./${page}`)
+
+const UniversalComponent = universal(asyncWork, { minDelay: 500 })
 
 export default class App extends React.Component {
   // set `show` to `true` to see dynamic chunks served by initial request
@@ -43,8 +70,8 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <h1 className={styles.title}>Hello World!</h1>
-        {this.state.show && <UniversalExample page='Example' />}
+        <h1 className={styles.title}>Hello World</h1>
+        {this.state.show && <UniversalComponent page='Foo' />}
         {!this.state.show && 'Async Component Not Requested Yet'}
       </div>
     )

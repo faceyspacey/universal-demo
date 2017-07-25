@@ -1,7 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin')
-const StatsPlugin = require('stats-webpack-plugin')
 
 module.exports = {
   name: 'client',
@@ -36,7 +35,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new StatsPlugin('stats.json'),
     new ExtractCssChunks(),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['bootstrap'], // needed to put webpack bootstrap code before chunks

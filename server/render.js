@@ -7,10 +7,21 @@ import App from '../src/components/App'
 export default ({ clientStats, outputPath }) => (req, res) => {
   const app = ReactDOM.renderToString(<App />)
   const chunkNames = flushChunkNames()
-  const { js, styles, cssHash } = flushChunks(clientStats, { chunkNames })
+
+  const {
+    js,
+    styles,
+    cssHash,
+    scripts,
+    stylesheets
+  } = flushChunks(clientStats, { chunkNames })
 
   console.log('PATH', req.path)
-  console.log('CHUNK NAMES RENDERED', chunkNames)
+  console.log('DYNAMIC CHUNK NAMES RENDERED', chunkNames)
+  console.log('SCRIPTS SERVED', scripts)
+  console.log('STYLESHEETS SERVED', stylesheets)
+  console.log('STATS.ASSETS_BY_CHUNK_NAME', clientStats.assetsByChunkName)
+  console.log('CSS HASH', cssHash.toString())
 
   res.send(
     `<!doctype html>
@@ -22,8 +33,8 @@ export default ({ clientStats, outputPath }) => (req, res) => {
         </head>
         <body>
           <div id="root">${app}</div>
-          ${js}
           ${cssHash}
+          ${js}
         </body>
       </html>`
   )
