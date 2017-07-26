@@ -1,45 +1,32 @@
-# Flush Chunks Boilerplate
+# Universal Demo
 > **UPDATE (July 25th):** This demo has been updated to showcase *babel-plugin-universal-import* + *react-universal-component* 2.0 + **this yet-to-be-merged PR to webpack/webpack: https://github.com/webpack/webpack/pull/5235**. 
 
-This is a boilerplate example for how to use the *Universal* family of packages:
+This is a demo of how to use the *Universal* family of packages:
 
 - [react-universal-component](https://github.com/faceyspacey/react-universal-component) 
 - [webpack-flush-chunks](https://github.com/faceyspacey/webpack-flush-chunks)
 - [extract-css-chunks-webpack-plugin](https://github.com/faceyspacey/extract-css-chunks-webpack-plugin)
 - [babel-plugin-universal-import](https://github.com/faceyspacey/babel-plugin-universal-import) 
 
+Feel free to use it as a boilerpate.
+
 ## Installation
 
 ```
-# git checkout https://github.com/webpack/webpack.js.org/pull/1453
+# git checkout https://github.com/webpack/webpack.js.org/pull/1453 webpack
 # webpack is automatically aliased and expected to be a sibling directory to this repo
 
-git clone https://github.com/faceyspacey/flush-chunks-boilerplate-webpack-chunknames.git
-cd flush-chunks-boilerplate-webpack-chunknames
-git checkout resolve-weak
+git clone https://github.com/faceyspacey/universal-demo.git
+cd universal-demo
 yarn
-```
-
-## Usage
-
-```
 yarn start
-# or
-yarn run start:prod
 ```
 
 
-After selecting one of the above commands, open [localhost:3000](http://localhost:3000) in your browser. View the source in the browser to see what chunks are being sent.
+Open [localhost:3000](http://localhost:3000) in your browser. View the source code in the browser to see what chunks are being sent. Also open the Network tab to see *when*.
 
-## Things to do to analyze [webpack PR #1453](https://github.com/webpack/webpack.js.org/pull/1453)
 
-- open src/App
-- there is 5 blocks to comment/uncomment
-- try each of the 5 things there
-- in both development + production
-- *note: for this demo's purposes, you probably should stop/start the app rather than rely on HMR to insure old chunks can't still be served, in order to be 100% sure of things :)*
-
-## Things To Do (Unrelated to Webpack PR)
+## Things To Do
 
 - try both commands and examine their corresponding Webpack configs and the corresponding server file: [`server/index.js`](./server/index.js)
 - view the source in your browser to see what the server sends (do this often)
@@ -61,3 +48,5 @@ then view the source in your browser to see when corresponding chunks are sent v
 ## Contributing
 We use [commitizen](https://github.com/commitizen/cz-cli), so run `npm run cm` to make commits. A command-line form will appear, requiring you answer a few questions to automatically produce a nicely formatted commit. If you see anything wrong, feel free to make a PR.
 
+## More from FaceySpacey in Reactlandia
+- [redux-first-router](https://github.com/faceyspacey/redux-first-router). It's made to work perfectly with *Universal*. Together they comprise our *"frameworkless"* approach to what Next.js does.
