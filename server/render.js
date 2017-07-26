@@ -4,7 +4,7 @@ import { flushChunkNames } from 'react-universal-component/server'
 import flushChunks from 'webpack-flush-chunks'
 import App from '../src/components/App'
 
-export default ({ clientStats, outputPath }) => (req, res) => {
+export default ({ clientStats }) => (req, res) => {
   const app = ReactDOM.renderToString(<App />)
   const chunkNames = flushChunkNames()
 
@@ -20,8 +20,6 @@ export default ({ clientStats, outputPath }) => (req, res) => {
   console.log('DYNAMIC CHUNK NAMES RENDERED', chunkNames)
   console.log('SCRIPTS SERVED', scripts)
   console.log('STYLESHEETS SERVED', stylesheets)
-  console.log('STATS.ASSETS_BY_CHUNK_NAME', clientStats.assetsByChunkName)
-  console.log('CSS HASH', cssHash.toString())
 
   res.send(
     `<!doctype html>

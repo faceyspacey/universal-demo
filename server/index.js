@@ -9,16 +9,18 @@ const serverConfig = require('../webpack/server.dev')
 const clientConfigProd = require('../webpack/client.prod')
 const serverConfigProd = require('../webpack/server.prod')
 
-const DEV = process.env.NODE_ENV === 'development'
 const publicPath = clientConfig.output.publicPath
 const outputPath = clientConfig.output.path
+const DEV = process.env.NODE_ENV === 'development'
 const app = express()
 
+let isBuilt = false
+
 const done = () =>
+  !isBuilt &&
   app.listen(3000, () => {
-    console.log(
-      'BUILD COMPLETE -- Listening @ http://localhost:3000/ -- IGNORE THE "Chunk.modules is deprecated warning"; IT\'S FROM EXTRACT-CSS-CHUNKS-WEBPACK-PLUGIN'
-    )
+    isBuilt = true
+    console.log('BUILD COMPLETE -- Listening @ http://localhost:3000/')
   })
 
 if (DEV) {
@@ -27,12 +29,7 @@ if (DEV) {
 
   app.use(webpackDevMiddleware(compiler, { publicPath }))
   app.use(webpackHotMiddleware(clientCompiler))
-  app.use(
-    // keeps serverRender updated with arg: { clientStats, outputPath }
-    webpackHotServerMiddleware(compiler, {
-      serverRendererOptions: { outputPath }
-    })
-  )
+  app.use(webpackHotServerMiddleware(compiler))
 
   compiler.plugin('done', done)
 }
@@ -42,7 +39,7 @@ else {
     const serverRender = require('../buildServer/main.js').default
 
     app.use(publicPath, express.static(outputPath))
-    app.use(serverRender({ clientStats, outputPath }))
+    app.use(serverRender({ clientStats }))
 
     done()
   })
