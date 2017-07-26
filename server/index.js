@@ -1,3 +1,4 @@
+require('module-alias/register')
 const express = require('express')
 const webpack = require('webpack')
 const webpackDevMiddleware = require('webpack-dev-middleware')
@@ -5,33 +6,44 @@ const webpackHotMiddleware = require('webpack-hot-middleware')
 const webpackHotServerMiddleware = require('webpack-hot-server-middleware')
 const clientConfig = require('../webpack/client.dev')
 const serverConfig = require('../webpack/server.dev')
+const clientConfigProd = require('../webpack/client.prod')
+const serverConfigProd = require('../webpack/server.prod')
 
 const DEV = process.env.NODE_ENV === 'development'
 const publicPath = clientConfig.output.publicPath
 const outputPath = clientConfig.output.path
 const app = express()
 
-if (DEV) {
-  const multiCompiler = webpack([clientConfig, serverConfig])
-  const clientCompiler = multiCompiler.compilers[0]
+const done = () =>
+  app.listen(3000, () => {
+    console.log(
+      'BUILD COMPLETE -- Listening @ http://localhost:3000/ -- IGNORE THE "Chunk.modules is deprecated warning"; IT\'S FROM EXTRACT-CSS-CHUNKS-WEBPACK-PLUGIN'
+    )
+  })
 
-  app.use(webpackDevMiddleware(multiCompiler, { publicPath }))
+if (DEV) {
+  const compiler = webpack([clientConfig, serverConfig])
+  const clientCompiler = compiler.compilers[0]
+
+  app.use(webpackDevMiddleware(compiler, { publicPath }))
   app.use(webpackHotMiddleware(clientCompiler))
   app.use(
     // keeps serverRender updated with arg: { clientStats, outputPath }
-    webpackHotServerMiddleware(multiCompiler, {
+    webpackHotServerMiddleware(compiler, {
       serverRendererOptions: { outputPath }
     })
   )
+
+  compiler.plugin('done', done)
 }
 else {
-  const clientStats = require('../buildClient/stats.json')
-  const serverRender = require('../buildServer/main.js').default
+  webpack([clientConfigProd, serverConfigProd]).run((err, stats) => {
+    const clientStats = stats.toJson().children[0]
+    const serverRender = require('../buildServer/main.js').default
 
-  app.use(publicPath, express.static(outputPath))
-  app.use(serverRender({ clientStats, outputPath }))
+    app.use(publicPath, express.static(outputPath))
+    app.use(serverRender({ clientStats, outputPath }))
+
+    done()
+  })
 }
-
-app.listen(3000, () => {
-  console.log('Listening @ http://localhost:3000/')
-})

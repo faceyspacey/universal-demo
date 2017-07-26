@@ -1,4 +1,7 @@
 .title {
-  color: blue;
+  color: black;
   font-size: 42px;
+}
+body {
+  background: white;
 }

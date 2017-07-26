@@ -11,7 +11,7 @@ const render = App =>
     document.getElementById('root')
   )
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development' && module.hot) {
   module.hot.accept('./components/App.js', () => {
     const App = require('./components/App').default
     render(App)
