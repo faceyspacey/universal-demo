@@ -17,7 +17,7 @@ Feel free to use it as a boilerpate.
 ## Installation
 
 ```
-git clone https://webpack/webpack
+git clone https://github.com/webpack/webpack.git
 cd webpack
 git checkout https://github.com/webpack/webpack.js.org/pull/1453
 yarn
