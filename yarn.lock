@@ -509,10 +509,6 @@ babel-plugin-check-es2015-constants@^6.22.0:
   dependencies:
     babel-runtime "^6.22.0"
 
-babel-plugin-dual-import@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/babel-plugin-dual-import/-/babel-plugin-dual-import-1.0.7.tgz#1cc070a52915a6fd562c69862f40c50b7f62aaed"
-
 babel-plugin-syntax-async-functions@^6.8.0:
   version "6.13.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-async-functions/-/babel-plugin-syntax-async-functions-6.13.0.tgz#cad9cad1191b5ad634bf30ae0872391e0647be95"
@@ -819,9 +815,9 @@ babel-plugin-transform-strict-mode@^6.22.0:
     babel-runtime "^6.22.0"
     babel-types "^6.22.0"
 
-babel-plugin-universal-import@^1.1.10:
-  version "1.1.10"
-  resolved "https://registry.yarnpkg.com/babel-plugin-universal-import/-/babel-plugin-universal-import-1.1.10.tgz#f655fac2739d7b7122f501c6582e86d4aadec612"
+babel-plugin-universal-import@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-universal-import/-/babel-plugin-universal-import-1.2.0.tgz#498de58f5af2642147e4e4eb8f554ab6cde25747"
 
 babel-polyfill@^6.23.0:
   version "6.23.0"
@@ -2259,9 +2255,9 @@ extglob@^0.3.1:
   dependencies:
     is-extglob "^1.0.0"
 
-extract-css-chunks-webpack-plugin@^2.0.7:
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/extract-css-chunks-webpack-plugin/-/extract-css-chunks-webpack-plugin-2.0.7.tgz#2258fd961561031c1b03dfe46702b3fdd8364da2"
+extract-css-chunks-webpack-plugin@^2.0.13:
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/extract-css-chunks-webpack-plugin/-/extract-css-chunks-webpack-plugin-2.0.13.tgz#17f157b96fcc1d9d72c7901490004ad6067ca236"
   dependencies:
     ajv "4.11.2"
     async "^2.5.0"
@@ -4434,11 +4430,9 @@ react-proxy@^3.0.0-alpha.0:
   dependencies:
     lodash "^4.6.1"
 
-react-universal-component@next:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/react-universal-component/-/react-universal-component-2.0.4.tgz#3467551c6c66887721a41dbded347c75e343d9c6"
-  dependencies:
-    require-universal-module "^1.2.8"
+react-universal-component@^2.0.18:
+  version "2.0.18"
+  resolved "https://registry.yarnpkg.com/react-universal-component/-/react-universal-component-2.0.18.tgz#78c922d88108d2bc22c30a78052f856dfa8f4109"
 
 react@^15.4.2:
   version "15.4.2"
@@ -4702,10 +4696,6 @@ require-uncached@^1.0.2:
   dependencies:
     caller-path "^0.1.0"
     resolve-from "^1.0.0"
-
-require-universal-module@^1.2.8:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/require-universal-module/-/require-universal-module-1.5.0.tgz#0e2b33848009eb4dd5cbfe593d6e356141580061"
 
 resolve-dir@^0.1.0:
   version "0.1.1"
@@ -5525,9 +5515,9 @@ webpack-dev-middleware@^1.11.0:
     path-is-absolute "^1.0.0"
     range-parser "^1.0.3"
 
-webpack-flush-chunks@^1.1.10:
-  version "1.1.10"
-  resolved "https://registry.yarnpkg.com/webpack-flush-chunks/-/webpack-flush-chunks-1.1.10.tgz#1cffb28a0e36187b046c4ca3160bac0d3ad1d2bc"
+webpack-flush-chunks@^1.1.14:
+  version "1.1.14"
+  resolved "https://registry.yarnpkg.com/webpack-flush-chunks/-/webpack-flush-chunks-1.1.14.tgz#9466eb1a74ed764b68032ad2b0585dd7db962a99"
 
 webpack-hot-middleware@^2.17.1:
   version "2.17.1"

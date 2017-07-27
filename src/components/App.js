@@ -3,33 +3,32 @@ import universal from 'react-universal-component'
 import styles from '../css/App.css'
 
 export default class App extends React.Component {
-  // set `show` to `true` to see dynamic chunks served by initial request
-  // set `show` to `false` to test how asynchronously loaded chunks behave,
-  // specifically: CHECK YOUR NETWORK TAB TO SEE 2 FILES (JS + CSS) RECEIVED
   state = {
-    show: true
+    page: 'Example'
   }
 
-  componentDidMount() {
-    if (this.state.show) return
-
-    setTimeout(() => {
-      console.log('now showing <Example />')
-      this.setState({ show: true })
-    }, 1500)
+  changePage = () => {
+    console.log('CHANGE PAGE', this.state.page)
+    this.setState(({ page }) => ({
+      page: page === 'Foo' ? 'Example' : 'Foo'
+    }))
   }
 
   render() {
+    const { page } = this.state
+
     return (
       <div>
-        <h1 className={styles.title}>Hello World</h1>
-        {this.state.show && <UniversalComponent page='Foo' />}
-        {!this.state.show && 'Async Component Not Requested Yet'}
+        <h1 className={styles.title}>Hello Reactlandia</h1>
+
+        <button onClick={this.changePage}>CHANGE PAGE</button>
+
+        <UniversalComponent page={page} />
       </div>
     )
   }
 }
 
 const UniversalComponent = universal(props => import(`./${props.page}`), {
-  minDelay: 500
+  minDelay: 1000
 })
