@@ -1,0 +1,68 @@
+@import './mixins'
+
+for page, color in pages
+  @keyframes fade-{page}
+    0%
+      background color[0]
+    100%
+      background color[1]
+
+for page, color in pages
+  .{page}
+    animation fade- + page 1.2s
+    animation-fill-mode forwards
+    display flex
+    align-items center
+    justify-content center
+    position absolute
+    top 0px
+    left 0px
+    width 100vw
+    height 100vh
+    z-index -1
+
+@keyframes spin
+  0%
+    transform rotate(0deg)
+  100%
+    transform rotate(360deg)
+
+.spinner
+  display flex
+  flex-direction column
+  align-items center
+  justify-content center
+  & div
+    position relative
+    width 11em
+    height 11em
+    margin 50px auto
+    font-size 10px
+    text-indent -9999em
+    background #141414
+    border-radius 50%
+    box-sizing border-box
+    background linear-gradient(to right, rgba(220, 220, 220, 1) 10%, rgba(55,55,55,0) 42%)
+    animation spin 1.4s infinite linear
+    transform translateZ(0)
+    &:before
+      content ''
+      position absolute
+      top 0
+      left 0
+      width 50%
+      height 50%
+      background rgba(220, 220, 220, 1)
+      border-radius 100% 0 0 0
+    &:after
+      content ''
+      position absolute
+      top 0
+      left 0
+      bottom 0
+      right 0
+      width 75%
+      height 75%
+      margin auto
+      background rgba(255, 255, 255, 1)
+      border-radius 50%

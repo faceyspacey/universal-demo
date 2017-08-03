@@ -1,11 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/server'
+import createHistory from 'history/createMemoryHistory'
 import { flushChunkNames } from 'react-universal-component/server'
 import flushChunks from 'webpack-flush-chunks'
 import App from '../src/components/App'
 
 export default ({ clientStats }) => (req, res) => {
-  const app = ReactDOM.renderToString(<App />)
+  const history = createHistory({ initialEntries: [req.path] })
+  const app = ReactDOM.renderToString(<App history={history} />)
   const chunkNames = flushChunkNames()
 
   const {

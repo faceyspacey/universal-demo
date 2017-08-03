@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from '../css/Foo'
+import styles from '../css/Baz'
 
 export default () => (
   <div className={styles.container}>
-    <span>Foo -- loaded</span>
+    <span>Baz -- loaded!!</span>
   </div>
 )

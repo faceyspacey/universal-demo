@@ -1,0 +1,23 @@
+@import './mixins'
+
+.centerPiece 
+  display flex
+  flex-direction row
+  align-items flex-start
+  & > div 
+    margin-left 20px
+  & img 
+    width 103px
+  & h2
+    text-style()
+    position relative
+    margin-top -5px
+    margin-bottom 7px
+    color rgb(255, 241, 254)
+    font-size 36px
+    font-weight 700
+  & h3
+    text-style()
+    margin 0
+    color rgba(255, 255, 255, .8)
+    font-size 20px

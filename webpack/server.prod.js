@@ -24,17 +24,25 @@ module.exports = {
         use: 'babel-loader'
       },
       {
-        test: /\.css$/,
+        test: /\.styl$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'css-loader/locals',
-          options: {
-            modules: true,
-            localIdentName: '[name]__[local]--[hash:base64:5]'
+        use: [
+          {
+            loader: 'css-loader/locals',
+            options: {
+              modules: true,
+              localIdentName: '[name]__[local]--[hash:base64:5]'
+            }
+          },
+          {
+            loader: 'stylus-loader'
           }
-        }
+        ]
       }
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.css', '.styl']
   },
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({

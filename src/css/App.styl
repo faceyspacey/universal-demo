@@ -1,0 +1,71 @@
+@import './mixins'
+
+for page, color in pages
+  .container button.{page}
+    color color[1]
+
+for page, color in pages
+  .container button.loading.{page}
+    color color[1] !important
+
+.container
+  display flex
+  flex-direction column
+  justify-content space-evenly
+  align-items center
+  position absolute
+  top 0px
+  left 0px
+  width 100vw
+  height 100vh
+  & h1
+    text-style()
+    position absolute
+    top 10px
+    left 10px
+    margin 0px
+    color rgb(255, 241, 254)
+  & .checkmark
+    position absolute
+    top 10px
+    right 10px
+    text-style()
+    color white
+    font-size 42px
+  & button
+    text-style()
+    height 100px
+    width 360px
+    font-size 32px
+    border-radius 0px
+    border 0px transparent
+    background rgb(255, 241, 254)
+    box-shadow 2px 3px 2px 2px rgba(58, 58, 58, 0.3)
+    outline none
+    cursor pointer
+    transition all 200ms
+    &:hover 
+      box-shadow 2px 3px 45px 10px rgba(58, 58, 58, 0.3)
+      transform translateY(-3px) scale(1.01)
+    &:active
+      box-shadow none
+      transform translateY(0px) scale(1)
+      background rgba(0,0,0, .15)
+      color rgb(255, 241, 254) !important
+    &.loading
+      background rgba(25,25,25, .6)
+      box-shadow none
+      transform translateY(0px) scale(1)
+      cursor default
+  & p
+    position absolute
+    bottom 10px
+    left 10px
+    margin: 0
+    & span
+      text-style()
+      display block
+      color rgba(255,255,255, .6)
+      font-size: 16
+      &:nth-child(2)
+        text-indent 8px

@@ -1,6 +1,8 @@
 import React from 'react'
-import styles from '../css/Example.css'
+import styles from '../css/Example'
 
 export default () => (
-  <div className={styles.paragraph}><span>EXAMPLE LOADED!!!!</span></div>
+  <div className={styles.container}>
+    <span>Example -- loaded!!</span>
+  </div>
 )
