@@ -5,6 +5,10 @@
 # Universal Demo
 > **UPDATE (July 25th):** This demo has been updated to showcase *babel-plugin-universal-import* + *react-universal-component* 2.0 + **this yet-to-be-merged PR to webpack/webpack: https://github.com/webpack/webpack/pull/5235**. 
 
+<p align="center">
+  <img src="https://s3-us-west-1.amazonaws.com/cdn.reactlandia.com/react-universal-component-demo-twitter.gif" />
+</p>
+
 This is a demo of how to use the *Universal* family of packages:
 
 - [react-universal-component](https://github.com/faceyspacey/react-universal-component) 
@@ -30,6 +34,7 @@ yarn start
 - Click "CHANGE PAGE" to cycle through dynamically imported pages
 - refresh on any page
 - and then view the source in the browser to see what chunks are being sent on each page
+- **view the primary code in:** ***[src/components/App.js](./src/omponents/App.js)***
 - open the Network tab to see when imports are fetched
 - edit the components to see that HMR works--even for split chunks.
 - edit and save the CSS files to confirm HMR works for CSS as well, thanks to [extract-css-chunks-webpack-plugin](https://github.com/faceyspacey/extract-css-chunks-webpack-plugin)

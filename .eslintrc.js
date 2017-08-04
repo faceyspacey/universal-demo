@@ -118,7 +118,7 @@ module.exports = {
       }
     ],
     'react/sort-comp': [
-      2,
+      1,
       {
         order: [
           'propTypes',

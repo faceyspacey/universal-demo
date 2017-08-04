@@ -1,18 +1,50 @@
 import React from 'react'
 import universal from 'react-universal-component'
 import styles from '../css/App'
-import CenterPiece from './CenterPiece'
+import UsageHero from './UsageHero'
 import Loading from './Loading'
-import Error from './Error'
+import NotFound from './NotFound'
 import { pages, nextIndex, indexFromPath } from '../utils'
 
 const UniversalComponent = universal(props => import(`./${props.page}`), {
   minDelay: 1200,
   loading: Loading,
-  error: Error
+  error: NotFound
 })
 
 export default class App extends React.Component {
+  render() {
+    const { index, done, loading } = this.state
+    const page = pages[index]
+    const loadingClass = loading ? styles.loading : ''
+    const buttonClass = `${styles[page]} ${loadingClass}`
+
+    return (
+      <div className={styles.container}>
+        <h1>Hello Reactlandia</h1>
+        {done && <div className={styles.checkmark}>all loaded ✔</div>}
+
+        <UsageHero page={page} />
+
+        <UniversalComponent
+          page={page}
+          onBefore={this.beforeChange}
+          onAfter={this.afterChange}
+          onError={this.handleError}
+        />
+
+        <button className={buttonClass} onClick={this.changePage}>
+          {this.buttonText()}
+        </button>
+
+        <p>
+          <span>*why are you looking at this? refresh the page</span>
+          <span>and view the source in Chrome for the real goods</span>
+        </p>
+      </div>
+    )
+  }
+
   constructor(props) {
     super(props)
 
@@ -42,18 +74,18 @@ export default class App extends React.Component {
     this.setState({ index })
   }
 
-  beforeChange = ({ isSync, isServer, isMount }) => {
+  beforeChange = ({ isSync }) => {
     if (!isSync) {
-      this.setState({ loading: true })
+      this.setState({ loading: true, error: false })
     }
   }
 
   afterChange = ({ isSync, isServer, isMount }) => {
     if (!isSync) {
-      this.setState({ loading: false })
+      this.setState({ loading: false, error: false })
     }
     else if (!isServer && !isMount) {
-      this.setState({ done: true })
+      this.setState({ done: true, error: false })
     }
   }
 
@@ -63,43 +95,7 @@ export default class App extends React.Component {
 
   buttonText() {
     const { loading, error } = this.state
-
-    if (error) {
-      return 'ERROR'
-    }
-
+    if (error) return 'ERROR'
     return loading ? 'LOADING...' : 'CHANGE PAGE'
-  }
-
-  render() {
-    const { index, done, loading, error } = this.state
-    const page = pages[index]
-    const loadingClass = loading ? styles.loading : ''
-    const buttonClass = `${styles[page]} ${loadingClass}`
-
-    return (
-      <div className={styles.container}>
-        <h1>Hello Reactlandia</h1>
-        {done && <div className={styles.checkmark}>all loaded ✔</div>}
-
-        <CenterPiece page={page} />
-
-        <UniversalComponent
-          page={page}
-          onBefore={this.beforeChange}
-          onAfter={this.afterChange}
-          onError={this.handleError}
-        />
-
-        <button className={buttonClass} onClick={this.changePage}>
-          {this.buttonText()}
-        </button>
-
-        <p>
-          <span>*why are you looking at this? refresh the page</span>
-          <span>and view the source in Chrome for the real goods</span>
-        </p>
-      </div>
-    )
   }
 }

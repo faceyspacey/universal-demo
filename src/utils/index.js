@@ -11,7 +11,4 @@ export const pages = [
 
 export const nextIndex = index => ++index % pages.length
 
-export const indexFromPath = path => {
-  const index = pages.indexOf(path.substr(1))
-  return index > -1 ? index : 0
-}
+export const indexFromPath = path => pages.indexOf(path.substr(1))
