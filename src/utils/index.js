@@ -11,4 +11,7 @@ export const pages = [
 
 export const nextIndex = index => ++index % pages.length
 
-export const indexFromPath = path => pages.indexOf(path.substr(1))
+export const indexFromPath = path => {
+  path = path === '/' ? '/Foo' : path
+  return pages.indexOf(path.substr(1))
+}

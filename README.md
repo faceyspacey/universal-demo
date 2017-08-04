@@ -6,7 +6,7 @@
 > **UPDATE (July 25th):** This demo has been updated to showcase *babel-plugin-universal-import* + *react-universal-component* 2.0 + **this yet-to-be-merged PR to webpack/webpack: https://github.com/webpack/webpack/pull/5235**. 
 
 <p align="center">
-  <img src="https://s3-us-west-1.amazonaws.com/cdn.reactlandia.com/react-universal-component-demo-twitter.gif" />
+  <img src="https://cdn.reactlandia.com/react-universal-component-demo-twitter.gif" />
 </p>
 
 This is a demo of how to use the *Universal* family of packages:
