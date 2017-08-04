@@ -3,11 +3,13 @@ import universal from 'react-universal-component'
 import styles from '../css/App'
 import CenterPiece from './CenterPiece'
 import Loading from './Loading'
+import Error from './Error'
 import { pages, nextIndex, indexFromPath } from '../utils'
 
 const UniversalComponent = universal(props => import(`./${props.page}`), {
   minDelay: 1200,
-  loading: Loading
+  loading: Loading,
+  error: Error
 })
 
 export default class App extends React.Component {
@@ -20,7 +22,8 @@ export default class App extends React.Component {
     this.state = {
       index,
       loading: false,
-      done: false
+      done: false,
+      error: false
     }
 
     history.listen(({ pathname }) => {
@@ -54,8 +57,22 @@ export default class App extends React.Component {
     }
   }
 
+  handleError = error => {
+    this.setState({ error: true, loading: false })
+  }
+
+  buttonText() {
+    const { loading, error } = this.state
+
+    if (error) {
+      return 'ERROR'
+    }
+
+    return loading ? 'LOADING...' : 'CHANGE PAGE'
+  }
+
   render() {
-    const { index, done, loading } = this.state
+    const { index, done, loading, error } = this.state
     const page = pages[index]
     const loadingClass = loading ? styles.loading : ''
     const buttonClass = `${styles[page]} ${loadingClass}`
@@ -71,10 +88,11 @@ export default class App extends React.Component {
           page={page}
           onBefore={this.beforeChange}
           onAfter={this.afterChange}
+          onError={this.handleError}
         />
 
         <button className={buttonClass} onClick={this.changePage}>
-          {loading ? 'LOADING...' : 'CHANGE PAGE'}
+          {this.buttonText()}
         </button>
 
         <p>
