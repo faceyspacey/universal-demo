@@ -34,7 +34,7 @@ yarn start
 - Click "CHANGE PAGE" to cycle through dynamically imported pages
 - refresh on any page
 - and then view the source in the browser to see what chunks are being sent on each page
-- **view the primary code in:** ***[src/components/App.js](./src/omponents/App.js)***
+- **view the primary code in:** ***[src/components/App.js](./src/components/App.js)***
 - open the Network tab to see when imports are fetched
 - edit the components to see that HMR works--even for split chunks.
 - edit and save the CSS files to confirm HMR works for CSS as well, thanks to [extract-css-chunks-webpack-plugin](https://github.com/faceyspacey/extract-css-chunks-webpack-plugin)
