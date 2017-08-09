@@ -3,7 +3,6 @@
 </a>
 
 # Universal Demo
-> **UPDATE (July 25th):** This demo has been updated to showcase *babel-plugin-universal-import* + *react-universal-component* 2.0 + **this yet-to-be-merged PR to webpack/webpack: https://github.com/webpack/webpack/pull/5235**. 
 
 <p align="center">
   <img src="https://cdn.reactlandia.com/react-universal-component-demo-twitter.gif" />
@@ -26,7 +25,6 @@ cd universal-demo
 yarn
 yarn start
 ```
-> NOTE: this demo depends on a fork of webpack called [webpack-universal](https://www.npmjs.com/package/webpack-universal). You will need to install it and alias like is done in this demo via [module-alias](https://www.npmjs.com/package/module-alias) (check `package.json` and `server/index.js` to see how it's done). The fork is based on my recently merged PR to webpack: https://github.com/webpack/webpack.js.org/pull/1453 . Expect it to be published to NPM in the next version of `webpack` in a few days.
 
 
 ## Things To Do
@@ -46,12 +44,9 @@ yarn start
 *Long live the dreams of Universal HMR* and ***Universal Code-Splitting!***
 
 
-## When will the Webpack PR for dynamic `require.resolveWeak` be published
-
-Only @sokra can tell you that. The good thing is it's already merged, so hopefully soon.
-
 ## Contributing
 We use [commitizen](https://github.com/commitizen/cz-cli), so run `npm run cm` to make commits. A command-line form will appear, requiring you answer a few questions to automatically produce a nicely formatted commit. If you see anything wrong, feel free to make a PR.
 
 ## More from FaceySpacey in Reactlandia
 - [redux-first-router](https://github.com/faceyspacey/redux-first-router). It's made to work perfectly with *Universal*. Together they comprise our *"frameworkless"* approach to what Next.js does.
+- [React Universal Component 2.0 + babel-plugin-universal-import Launch Article](https://medium.com/faceyspacey/announcing-react-universal-component-2-0-babel-plugin-universal-import-5702d59ec1f4)

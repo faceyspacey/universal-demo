@@ -13,9 +13,6 @@
     "precommit": "lint-staged --verbose",
     "cm": "git-cz"
   },
-  "_moduleAliases": {
-    "webpack": "./node_modules/webpack-universal"
-  },
   "dependencies": {
     "colors": "^1.1.2",
     "express": "^4.15.2",
@@ -50,7 +47,6 @@
     "extract-css-chunks-webpack-plugin": "^2.0.16",
     "husky": "^0.13.2",
     "lint-staged": "^3.4.0",
-    "module-alias": "^2.0.0",
     "poststylus": "^0.2.3",
     "prettier": "^1.5.3",
     "react-hot-loader": "next",
@@ -58,9 +54,9 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "travis-github-status": "^1.4.0",
+    "webpack": "^3.5.1",
     "webpack-hot-middleware": "^2.17.1",
     "webpack-hot-server-middleware": "^0.1.0",
-    "webpack-universal": "^1.0.0",
     "write-file-webpack-plugin": "^4.1.0"
   },
   "config": {

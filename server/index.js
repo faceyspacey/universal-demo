@@ -1,4 +1,3 @@
-require('module-alias/register')
 require('colors')
 const express = require('express')
 const webpack = require('webpack') // aliased to webpack-universal
