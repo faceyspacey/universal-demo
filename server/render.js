@@ -9,42 +9,40 @@ export default ({ clientStats }) => (req, res) => {
   const history = createHistory({ initialEntries: [req.path] })
   const LANG = 'en'
 
-  // FIXME: Ideally this would be supported, but currently throws
-  // import(`../src/messages/${LANG}`).then(value => {
+  /* eslint-disable global-require, import/no-dynamic-require */
+  const messages = require(`../src/messages/${LANG}`).default
 
-  import('../src/messages/en').then(value => {
-    const app = ReactDOM.renderToString(
-      <App history={history} messages={value.default} />
-    )
-    const chunkNames = flushChunkNames()
+  const app = ReactDOM.renderToString(
+    <App history={history} messages={messages} />
+  )
+  const chunkNames = flushChunkNames()
 
-    const {
-      js,
-      styles,
-      cssHash,
-      scripts,
-      stylesheets
-    } = flushChunks(clientStats, { chunkNames })
+  const {
+    js,
+    styles,
+    cssHash,
+    scripts,
+    stylesheets
+  } = flushChunks(clientStats, { chunkNames })
 
-    console.log('PATH', req.path)
-    console.log('DYNAMIC CHUNK NAMES RENDERED', chunkNames)
-    console.log('SCRIPTS SERVED', scripts)
-    console.log('STYLESHEETS SERVED', stylesheets)
+  console.log('PATH', req.path)
+  console.log('DYNAMIC CHUNK NAMES RENDERED', chunkNames)
+  console.log('SCRIPTS SERVED', scripts)
+  console.log('STYLESHEETS SERVED', stylesheets)
 
-    res.send(
-      `<!doctype html>
-        <html>
-          <head>
-            <meta charset="utf-8">
-            <title>react-universal-component-boilerplate</title>
-            ${styles}
-          </head>
-          <body>
-            <div id="root">${app}</div>
-            ${cssHash}
-            ${js}
-          </body>
-        </html>`
-    )
-  })
+  res.send(
+    `<!doctype html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <title>react-universal-component-boilerplate</title>
+          ${styles}
+        </head>
+        <body>
+          <div id="root">${app}</div>
+          ${cssHash}
+          ${js}
+        </body>
+      </html>`
+  )
 }
