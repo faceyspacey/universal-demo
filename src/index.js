@@ -17,6 +17,11 @@ const render = App =>
     document.getElementById('root')
   )
 
+function updateMessages(incoming) {
+  Object.assign(messages, incoming)
+  render(App)
+}
+
 if (process.env.NODE_ENV === 'development' && module.hot) {
   module.hot.accept('./components/App.js', () => {
     const App = require('./components/App').default
@@ -25,14 +30,8 @@ if (process.env.NODE_ENV === 'development' && module.hot) {
 
   module.hot.accept('./loadMessages', () => {
     const loadMessages = require('./loadMessages').default
-    loadMessages(LANG).then(incoming => {
-      Object.assign(messages, incoming)
-      render(App)
-    })
+    loadMessages(LANG).then(updateMessages)
   })
 }
 
-loadMessages(LANG).then(incoming => {
-  Object.assign(messages, incoming)
-  render(App)
-})
+loadMessages(LANG).then(updateMessages)
