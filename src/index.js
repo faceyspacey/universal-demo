@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom'
 import createHistory from 'history/createBrowserHistory'
 import AppContainer from 'react-hot-loader/lib/AppContainer'
 import App from './components/App'
+import loadMessages from './loadMessages'
 
 const history = createHistory()
-let messages = {}
+const LANG = 'en'
+const messages = {}
 
 const render = App =>
   ReactDOM.render(
@@ -20,9 +22,17 @@ if (process.env.NODE_ENV === 'development' && module.hot) {
     const App = require('./components/App').default
     render(App)
   })
+
+  module.hot.accept('./loadMessages', () => {
+    const loadMessages = require('./loadMessages').default
+    loadMessages(LANG).then(incoming => {
+      Object.assign(messages, incoming)
+      render(App)
+    })
+  })
 }
 
-import('./messages').then(incomingMessages => {
-  messages = incomingMessages
+loadMessages(LANG).then(incoming => {
+  Object.assign(messages, incoming)
   render(App)
 })
