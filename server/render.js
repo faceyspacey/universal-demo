@@ -9,9 +9,10 @@ export default ({ clientStats }) => (req, res) => {
   const history = createHistory({ initialEntries: [req.path] })
   const LANG = 'en'
 
-  import('../src/messages/en').then(value => {
-    console.log('Messages Loaded: ', value)
+  // FIXME: Ideally this would be supported, but currently throws
+  // import(`../src/messages/${LANG}`).then(value => {
 
+  import('../src/messages/en').then(value => {
     const app = ReactDOM.renderToString(
       <App history={history} messages={value.default} />
     )
