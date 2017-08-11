@@ -7,35 +7,43 @@ import App from '../src/components/App'
 
 export default ({ clientStats }) => (req, res) => {
   const history = createHistory({ initialEntries: [req.path] })
-  const app = ReactDOM.renderToString(<App history={history} />)
-  const chunkNames = flushChunkNames()
+  const LANG = 'en'
 
-  const {
-    js,
-    styles,
-    cssHash,
-    scripts,
-    stylesheets
-  } = flushChunks(clientStats, { chunkNames })
+  import('../src/messages/en').then(value => {
+    console.log('Messages Loaded: ', value)
 
-  console.log('PATH', req.path)
-  console.log('DYNAMIC CHUNK NAMES RENDERED', chunkNames)
-  console.log('SCRIPTS SERVED', scripts)
-  console.log('STYLESHEETS SERVED', stylesheets)
+    const app = ReactDOM.renderToString(
+      <App history={history} messages={value.default} />
+    )
+    const chunkNames = flushChunkNames()
 
-  res.send(
-    `<!doctype html>
-      <html>
-        <head>
-          <meta charset="utf-8">
-          <title>react-universal-component-boilerplate</title>
-          ${styles}
-        </head>
-        <body>
-          <div id="root">${app}</div>
-          ${cssHash}
-          ${js}
-        </body>
-      </html>`
-  )
+    const {
+      js,
+      styles,
+      cssHash,
+      scripts,
+      stylesheets
+    } = flushChunks(clientStats, { chunkNames })
+
+    console.log('PATH', req.path)
+    console.log('DYNAMIC CHUNK NAMES RENDERED', chunkNames)
+    console.log('SCRIPTS SERVED', scripts)
+    console.log('STYLESHEETS SERVED', stylesheets)
+
+    res.send(
+      `<!doctype html>
+        <html>
+          <head>
+            <meta charset="utf-8">
+            <title>react-universal-component-boilerplate</title>
+            ${styles}
+          </head>
+          <body>
+            <div id="root">${app}</div>
+            ${cssHash}
+            ${js}
+          </body>
+        </html>`
+    )
+  })
 }
