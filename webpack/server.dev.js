@@ -6,7 +6,7 @@ const WriteFilePlugin = require('write-file-webpack-plugin')
 const res = p => path.resolve(__dirname, p)
 
 const nodeModules = res('../node_modules')
-const entry = res('../server/render.js')
+const entry = res('../src/server.js')
 const output = res('../buildServer')
 
 // if you're specifying externals to leave unbundled, you need to tell Webpack
@@ -71,7 +71,8 @@ module.exports = {
 
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('development')
+        NODE_ENV: JSON.stringify('development'),
+        TARGET: JSON.stringify('node')
       }
     })
   ]
