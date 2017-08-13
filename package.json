@@ -20,9 +20,9 @@
     "history": "^4.6.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-universal-component": "^2.3.2",
+    "react-universal-component": "^2.3.4",
     "webpack-dev-middleware": "^1.12.0",
-    "webpack-flush-chunks": "^1.1.18"
+    "webpack-flush-chunks": "^1.1.20"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -54,7 +54,7 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "travis-github-status": "^1.6.3",
-    "webpack": "^3.5.3",
+    "webpack": "^3.5.4",
     "webpack-hot-middleware": "^2.18.2",
     "webpack-hot-server-middleware": "^0.1.0",
     "write-file-webpack-plugin": "^4.1.0"
