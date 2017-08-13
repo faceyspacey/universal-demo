@@ -1,4 +1,6 @@
 export default function loadMessages(lang) {
+  // Note: `import()` is always rewritten by babel-plugin-universal-import.
+  // It does not differ between client and server code.
   const wrapped = import(`./messages/${lang}`)
 
   if (typeof window !== 'undefined') {
