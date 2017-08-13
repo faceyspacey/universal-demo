@@ -5,8 +5,8 @@ const WriteFilePlugin = require('write-file-webpack-plugin')
 
 const res = p => path.resolve(__dirname, p)
 
-const modeModules = res('../node_modules')
-const entry = res('../server/render.js')
+const nodeModules = res('../node_modules')
+const entry = res('../src/server.js')
 const output = res('../buildServer')
 
 // if you're specifying externals to leave unbundled, you need to tell Webpack
@@ -14,7 +14,7 @@ const output = res('../buildServer')
 // `require-universal-module` so that they know they are running
 // within Webpack and can properly make connections to client modules:
 const externals = fs
-  .readdirSync(modeModules)
+  .readdirSync(nodeModules)
   .filter(x => !/\.bin|react-universal-component|webpack-flush-chunks/.test(x))
   .reduce((externals, mod) => {
     externals[mod] = `commonjs ${mod}`
@@ -27,7 +27,7 @@ module.exports = {
   name: 'server',
   target: 'node',
   // devtool: 'source-map',
-  devtool: 'eval',
+  // devtool: 'eval',
   entry: [entry],
   externals,
   output: {
@@ -71,7 +71,8 @@ module.exports = {
 
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('development')
+        NODE_ENV: JSON.stringify('development'),
+        TARGET: JSON.stringify('node')
       }
     })
   ]

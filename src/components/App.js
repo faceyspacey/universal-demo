@@ -15,13 +15,16 @@ const UniversalComponent = universal(props => import(`./${props.page}`), {
 export default class App extends React.Component {
   render() {
     const { index, done, loading } = this.state
+    const { messages } = this.props
     const page = pages[index]
     const loadingClass = loading ? styles.loading : ''
     const buttonClass = `${styles[page]} ${loadingClass}`
 
     return (
       <div className={styles.container}>
-        <h1>Hello Reactlandia</h1>
+        <h1>
+          {messages.hello || 'Fallback'} Reactlandia
+        </h1>
         {done && <div className={styles.checkmark}>all loaded ✔</div>}
 
         <UsageHero page={page} />

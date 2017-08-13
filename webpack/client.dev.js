@@ -7,11 +7,11 @@ module.exports = {
   name: 'client',
   target: 'web',
   // devtool: 'source-map',
-  devtool: 'eval',
+  // devtool: 'eval',
   entry: [
     'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=false&quiet=false&noInfo=false',
     'react-hot-loader/patch',
-    path.resolve(__dirname, '../src/index.js')
+    path.resolve(__dirname, '../src/client.js')
   ],
   output: {
     filename: '[name].js',
@@ -61,7 +61,8 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('development')
+        NODE_ENV: JSON.stringify('development'),
+        TARGET: JSON.stringify('web')
       }
     })
   ]
