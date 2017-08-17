@@ -71,6 +71,7 @@ module.exports = {
     'no-case-declarations': 1,
     'jsx-a11y/img-has-alt': 1,
     'no-template-curly-in-string': 1,
+    'react/jsx-no-target-blank': 1,
     semi: [2, 'never'],
     'flowtype/semi': [2, 'never'],
     'jsx-quotes': [2, 'prefer-single'],
