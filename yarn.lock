@@ -809,9 +809,9 @@ babel-plugin-transform-strict-mode@^6.22.0:
     babel-runtime "^6.22.0"
     babel-types "^6.22.0"
 
-babel-plugin-universal-import@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/babel-plugin-universal-import/-/babel-plugin-universal-import-1.2.5.tgz#1c2576dfb80250e735db1770515f7264fdcac9d3"
+babel-plugin-universal-import@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/babel-plugin-universal-import/-/babel-plugin-universal-import-1.2.6.tgz#683796ed03a83743cb9bf00ab3013113dc716ee6"
 
 babel-polyfill@^6.23.0:
   version "6.23.0"
@@ -5736,9 +5736,9 @@ webpack-dev-middleware@^1.11.0:
     path-is-absolute "^1.0.0"
     range-parser "^1.0.3"
 
-webpack-flush-chunks@^1.1.17:
-  version "1.1.17"
-  resolved "https://registry.yarnpkg.com/webpack-flush-chunks/-/webpack-flush-chunks-1.1.17.tgz#f49f84a26c0e59739e9b90bf24186cd30b12cddc"
+webpack-flush-chunks@^1.1.23:
+  version "1.1.23"
+  resolved "https://registry.yarnpkg.com/webpack-flush-chunks/-/webpack-flush-chunks-1.1.23.tgz#130bd3f9d33552e2d7290862ef159978c6b98a1e"
 
 webpack-hot-middleware@^2.17.1:
   version "2.17.1"
