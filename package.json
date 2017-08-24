@@ -21,6 +21,7 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-universal-component": "^2.5.0",
+    "react-vue-helper": "^0.0.4",
     "webpack-dev-middleware": "^1.11.0",
     "webpack-flush-chunks": "^1.1.23"
   },
@@ -50,6 +51,7 @@
     "poststylus": "^0.2.3",
     "prettier": "^1.5.3",
     "react-hot-loader": "next",
+    "react-vue-loader": "^0.0.5",
     "rimraf": "^2.6.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",

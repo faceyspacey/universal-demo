@@ -71,7 +71,6 @@ export default class App extends React.Component {
     const page = pages[index]
 
     this.props.history.push(`/${page}`)
-    this.setState({ index })
   }
 
   beforeChange = ({ isSync }) => {
