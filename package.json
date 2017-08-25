@@ -44,7 +44,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
-    "extract-css-chunks-webpack-plugin": "^2.0.16",
+    "extract-css-chunks-webpack-plugin": "^2.0.17",
     "husky": "^0.13.2",
     "lint-staged": "^3.4.0",
     "poststylus": "^0.2.3",
