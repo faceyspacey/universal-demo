@@ -20,7 +20,7 @@
     "history": "^4.6.3",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-universal-component": "^2.5.0",
+    "react-universal-component": "^2.5.1",
     "webpack-dev-middleware": "^1.11.0",
     "webpack-flush-chunks": "^1.1.23"
   },
