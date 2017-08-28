@@ -43,6 +43,16 @@ module.exports = {
         use: 'babel-loader'
       },
       {
+        test: /\.vue$/,
+        loader: 'react-vue-loader',
+        options: {
+          vue: path.resolve(__dirname, '../vue.config.js'),
+          cssModules: {
+            localIdentName: '[name]-[local]'
+          }
+        }
+      },
+      {
         test: /\.styl$/,
         exclude: /node_modules/,
         use: [
@@ -50,7 +60,7 @@ module.exports = {
             loader: 'css-loader/locals',
             options: {
               modules: true,
-              localIdentName: '[name]__[local]--[hash:base64:5]'
+              localIdentName: '[name]-[local]'
             }
           },
           {
@@ -61,7 +71,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.css', '.styl']
+    extensions: ['.vue', '.js', '.css', '.styl']
   },
   plugins: [
     new WriteFilePlugin(),

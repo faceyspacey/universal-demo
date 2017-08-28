@@ -16,7 +16,7 @@ module.exports = {
     },
     'import/resolver': {
       node: {
-        extensions: ['.js', '.json', '.css', '.styl']
+        extensions: ['.vue', '.js', '.json', '.css', '.styl']
       }
     }
   },
@@ -41,6 +41,7 @@ module.exports = {
       'error',
       'always',
       {
+        vue: 'never',
         js: 'never',
         jsx: 'never',
         styl: 'never',

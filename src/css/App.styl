@@ -18,13 +18,14 @@ for page, color in pages
   left 0px
   width 100vw
   height 100vh
-  & h1
+  & > h1
     text-style()
     position absolute
     top 10px
     left 10px
     margin 0px
     color rgb(255, 241, 254)
+    z-index: 1
   & .checkmark
     position absolute
     top 10px
@@ -32,8 +33,10 @@ for page, color in pages
     text-style()
     color white
     font-size 42px
-  & button
+    z-index: 1
+  & > button
     text-style()
+    margin-top: 100px
     height 100px
     width 360px
     font-size 32px
@@ -44,6 +47,7 @@ for page, color in pages
     outline none
     cursor pointer
     transition all 200ms
+    z-index: 1
     &:hover 
       box-shadow 2px 3px 45px 10px rgba(58, 58, 58, 0.3)
       transform translateY(-3px) scale(1.01)
@@ -57,7 +61,7 @@ for page, color in pages
       box-shadow none
       transform translateY(0px) scale(1)
       cursor default
-  & p
+  & > p
     position absolute
     bottom 10px
     left 10px

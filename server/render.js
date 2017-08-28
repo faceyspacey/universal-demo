@@ -34,6 +34,8 @@ export default ({ clientStats }) => (req, res) => {
         <body>
           <div id="root">${app}</div>
           ${cssHash}
+          <script type='text/javascript' src='/static/vendor.js'></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
           ${js}
         </body>
       </html>`
