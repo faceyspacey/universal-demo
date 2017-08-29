@@ -25,4 +25,4 @@ yarn start
 - transitions
 - D3
 - bi-directional communication between React + Vue (using Vuex)
-- universal code splitting (i.e. SSR + Splitting)!
+- universal code splitting (i.e. SSR + Splitting)! -- using [react-universal-component](https://github.com/faceyspacey/react-universal-component)
