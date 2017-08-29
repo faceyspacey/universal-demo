@@ -1,10 +1,10 @@
 @import './mixins'
 
-for page, color in pages
+for page, color in examples
   .container button.{page}
     color color[1]
 
-for page, color in pages
+for page, color in examples
   .container button.loading.{page}
     color color[1] !important
 
@@ -36,7 +36,7 @@ for page, color in pages
     z-index: 1
   & > button
     text-style()
-    margin-top: 100px
+    margin-top: 250px
     height 100px
     width 360px
     font-size 32px
@@ -66,10 +66,12 @@ for page, color in pages
     bottom 10px
     left 10px
     margin: 0
-    & span
-      text-style()
-      display block
-      color rgba(255,255,255, .6)
-      font-size: 16
-      &:nth-child(2)
-        text-indent 8px
+    text-style()
+    display block
+    color rgba(255,255,255, .6)
+    font-size: 16
+
+.fromReact
+  position absolute
+  bottom 10px
+  right 10px

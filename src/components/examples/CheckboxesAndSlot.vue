@@ -1,16 +1,16 @@
 <template>
   <div :class='$style.container'>
     <div :class='$style.checkboxes'>
-      <div slot='checkboxes'>
-        <input type='checkbox' id='Tobias' value='Tobias' v-model='checkedNames'>
-        <label for='Tobias'>Tobias</label>
-        <input type='checkbox' id='Sean' value='Sean' v-model='checkedNames'>
-        <label for='Sean'>Sean</label>
-        <input type='checkbox' id='James' value='James' v-model='checkedNames'>
-        <label for='James'>James</label>
-      </div>
-
       <slot-example>
+        <div slot='checkboxes'>
+          <input type='checkbox' id='Tobias' value='Tobias' v-model='checkedNames'>
+          <label for='Tobias'>Tobias</label>
+          <input type='checkbox' id='Sean' value='Sean' v-model='checkedNames'>
+          <label for='Sean'>Sean</label>
+          <input type='checkbox' id='James' value='James' v-model='checkedNames'>
+          <label for='James'>James</label>
+        </div>
+
         <span>Checked names: {{ checkedNames }}</span>
       </slot-example>
     </div>
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import SlotExample from './SlotExample'
+import SlotExample from '../widgets/SlotExample'
 
 export default {
   components: {

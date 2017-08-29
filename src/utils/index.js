@@ -1,17 +1,15 @@
-export const pages = [
-  'Foo',
-  'Bar',
-  'Baz',
-  'Rudy',
-  'Example',
-  'ReduxFirstRouter',
-  'Universal',
-  'FaceySpacey'
+export const examples = [
+  'Counter',
+  'TodoListAndImportedComponent',
+  'CheckboxesAndSlot',
+  'Transition',
+  'Vuex',
+  'D3'
 ]
 
-export const nextIndex = index => ++index % pages.length
+export const nextIndex = index => ++index % examples.length
 
 export const indexFromPath = path => {
-  path = path === '/' ? '/Foo' : path
-  return pages.indexOf(path.substr(1))
+  path = path === '/' ? '/Counter' : path
+  return examples.indexOf(path.substr(1))
 }

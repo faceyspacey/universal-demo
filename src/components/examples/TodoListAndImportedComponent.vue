@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import Todo from './Todo.vue'
+import Todo from '../widgets/Todo.vue'
 
 export default {
   components: {

@@ -4,30 +4,34 @@ import styles from '../css/App'
 import UsageHero from './UsageHero'
 import Loading from './Loading'
 import NotFound from './NotFound'
-import { pages, nextIndex, indexFromPath } from '../utils'
+import { examples, nextIndex, indexFromPath } from '../utils'
+import createStore from '../createVuexStore'
 
-const UniversalComponent = universal(props => import(`./${props.page}`), {
-  minDelay: 1200,
-  loading: Loading,
-  error: NotFound
-})
+const UniversalComponent = universal(
+  props => import(`./examples/${props.example}`),
+  {
+    minDelay: 1200,
+    loading: Loading,
+    error: NotFound
+  }
+)
 
 export default class App extends React.Component {
   render() {
     const { index, done, loading } = this.state
-    const page = pages[index]
+    const example = examples[index]
     const loadingClass = loading ? styles.loading : ''
-    const buttonClass = `${styles[page]} ${loadingClass}`
+    const buttonClass = `${styles[example]} ${loadingClass}`
 
     return (
       <div className={styles.container}>
         <h1>Hello Reactlandia</h1>
         {done && <div className={styles.checkmark}>all loaded ✔</div>}
 
-        <UsageHero page={page} />
+        <UsageHero example={example} />
 
         <UniversalComponent
-          page={page}
+          example={example}
           onBefore={this.beforeChange}
           onAfter={this.afterChange}
           onError={this.handleError}
@@ -37,13 +41,33 @@ export default class App extends React.Component {
           {this.buttonText()}
         </button>
 
-        <p>
-          <span>*why are you looking at this? refresh the page</span>
-          <span>and view the source in Chrome for the real goods</span>
-        </p>
+        <p>*view the source in Chrome to verify universal code-splitting</p>
+
+        {example === 'Vuex' &&
+          <div className={styles.fromReact}>
+            <div>
+              vuex state in react: {this.count}
+            </div>
+            <button onClick={this.divide}>DIVIDE BY 2 FROM REACT</button>
+          </div>}
       </div>
     )
   }
+
+  // Vuex in React!
+
+  divide = () => {
+    this.vuexStore.dispatch('divide', 2)
+  }
+  get count() {
+    return this.vuexStore ? this.vuexStore.state.count : 0
+  }
+  componentDidMount() {
+    this.vuexStore = createStore()
+    this.vuexStore.subscribe(() => this.forceUpdate())
+  }
+
+  // standard stuff
 
   constructor(props) {
     super(props)
@@ -68,9 +92,9 @@ export default class App extends React.Component {
     if (this.state.loading) return
 
     const index = nextIndex(this.state.index)
-    const page = pages[index]
+    const example = examples[index]
 
-    this.props.history.push(`/${page}`)
+    this.props.history.push(`/${example}`)
   }
 
   beforeChange = ({ isSync }) => {
@@ -95,6 +119,6 @@ export default class App extends React.Component {
   buttonText() {
     const { loading, error } = this.state
     if (error) return 'ERROR'
-    return loading ? 'LOADING...' : 'CHANGE PAGE'
+    return loading ? 'LOADING...' : 'NEXT EXAMPLE'
   }
 }

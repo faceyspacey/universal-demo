@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from '../css/Loading'
 
-export default ({ page }) =>
-  <div className={styles[page]}>
+export default ({ example }) =>
+  <div className={styles[example]}>
     <div className={styles.spinner}>
       <div />
     </div>

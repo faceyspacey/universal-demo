@@ -15,6 +15,8 @@
   },
   "dependencies": {
     "colors": "^1.1.2",
+    "d3-scale": "^1.0.6",
+    "d3-shape": "^1.2.0",
     "express": "^4.15.2",
     "express-no-favicons": "^0.0.1",
     "history": "^4.6.3",
@@ -22,7 +24,7 @@
     "react-dom": "^15.4.2",
     "react-universal-component": "^2.5.1",
     "react-vue": "^0.0.3",
-    "react-vue-helper": "^0.0.4",
+    "react-vue-helper": "^0.0.5",
     "react-vue-loader": "^0.0.6",
     "velocity-animate": "^1.5.0",
     "vuex": "^2.3.1",
