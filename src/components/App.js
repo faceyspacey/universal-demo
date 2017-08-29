@@ -46,7 +46,7 @@ export default class App extends React.Component {
         {example === 'Vuex' &&
           <div className={styles.fromReact}>
             <div>
-              vuex state in react: {this.count}
+              vuex state in react: {this.count()}
             </div>
             <button onClick={this.divide}>DIVIDE BY 2 FROM REACT</button>
           </div>}
@@ -59,7 +59,7 @@ export default class App extends React.Component {
   divide = () => {
     this.vuexStore.dispatch('divide', 2)
   }
-  get count() {
+  count() {
     return this.vuexStore ? this.vuexStore.state.count : 0
   }
   componentDidMount() {

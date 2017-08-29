@@ -3,7 +3,9 @@
     <div>
       <h1 :class='$style.parent'>IM THE PARENT</h1>
       <span :class="{[$style.odd]: isOdd}">count: {{loading ? 'loading...' : count}}</span>
+
       <child></child>
+
       <button @click='multiplyAsync(amount)'>MULTIPLY ASYNC!</button>
       <input type='number' v-model.number='amount' placeholder='enter a number' />
     </div>

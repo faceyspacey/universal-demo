@@ -1,8 +1,10 @@
 <template>
   <div>
     <slot name='checkboxes'></slot>
+
     <h1>{{title}}</h1>
     <slot></slot>
+
     <h2>{{caption}}</h2>
   </div>
 </template>

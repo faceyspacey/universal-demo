@@ -4,25 +4,15 @@
       <h1>OH YES D3 WORKS HERE TOO!</h1>
 
       <div :class='$style.inner'>
-        <arcs-graph
-          :height='200'
-          :width='200'
-          :outer-radius='150'
-          :inner-radius='80'
-          :pad-angle='.3'
-          :pad-radius='10'
+        <arcs-graph :height='200' :width='200'
+          :outer-radius='150' :inner-radius='80'
+          :pad-angle='.3' :pad-radius='10'
           :domain='webpackModules'
           :colors="['#98abc5', '#8a89a6', '#7b6888', '#6b486b', '#a05d56', '#d0743c', '#ff8c00']"
-          value-accessor='size'
-          label-accessor='size'
+          value-accessor='size' label-accessor='size'
         ></arcs-graph>
 
-        <time-line-graph 
-          :height='200' 
-          :width='200'
-          :domain='timelineData'
-        >
-        </time-line-graph>
+        <time-line-graph :height='200' :width='200' :domain='timelineData'></time-line-graph>
       </div>
       
     </div>

@@ -10,8 +10,7 @@ const extractImported = new ExtractCssChunks()
 module.exports = {
   name: 'client',
   target: 'web',
-  // devtool: 'source-map',
-  devtool: 'eval',
+  devtool: '#cheap-module-eval-source-map',
   entry: [
     'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=false&quiet=false&noInfo=false',
     'react-hot-loader/patch',
@@ -89,7 +88,7 @@ module.exports = {
       context: path.join(__dirname, '..'),
       filename: '[name].js',
       entry: {
-        vendor: ['react', 'react-dom', 'react-vue', 'react-vue-helper']
+        vendor: ['react', 'react-dom', 'react-vue']
       }
     })
   ]

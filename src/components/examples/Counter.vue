@@ -1,8 +1,12 @@
 <template>
   <div :class='$style.container'>
-    <span>{{count}}</span>
-    <button @click='count--'>DECREMENT</button>
-    <button @click='count++'>INCREMENT</button>
+    <div>
+      <h1>THIS IS AN SFC MADE /W VUE</h1>
+      <span>{{count}}</span>
+      
+      <button @click='count--'>DECREMENT</button>
+      <button @click='count++'>INCREMENT</button>
+    </div>
   </div>
 </template>
 
@@ -27,6 +31,9 @@
   display flex
   align-items center
   justify-content center
+  & h1
+    color rgba(255,255,255, .9)
+    font-size 36px
   & span
     color rgba(255,255,255, .5)
     font-size 32px

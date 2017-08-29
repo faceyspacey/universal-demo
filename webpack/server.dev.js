@@ -26,8 +26,7 @@ externals['react-dom/server'] = 'commonjs react-dom/server'
 module.exports = {
   name: 'server',
   target: 'node',
-  // devtool: 'source-map',
-  devtool: 'eval',
+  devtool: '#cheap-module-eval-source-map',
   entry: [entry],
   externals,
   output: {
