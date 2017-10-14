@@ -69,7 +69,6 @@ module.exports = {
     'no-console': 1,
     'jsx-a11y/no-static-element-interactions': 1,
     'no-case-declarations': 1,
-    'jsx-a11y/img-has-alt': 1,
     'no-template-curly-in-string': 1,
     'react/jsx-no-target-blank': 1,
     semi: [2, 'never'],
