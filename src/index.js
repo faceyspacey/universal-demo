@@ -7,7 +7,7 @@ import App from './components/App'
 const history = createHistory()
 
 const render = App =>
-  ReactDOM.render(
+  ReactDOM.hydrate(
     <AppContainer>
       <App history={history} />
     </AppContainer>,
