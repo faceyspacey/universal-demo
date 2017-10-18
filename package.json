@@ -10,7 +10,7 @@
     "start:prod": "npm run clean && cross-env NODE_ENV=production node server/index.js",
     "format": "prettier --single-quote --semi=false --write '{src,server,webpack}/**/*.js' && eslint --fix src server webpack",
     "clean": "rimraf buildClient buildServer",
-    "precommit": "lint-staged --verbose",
+    "precommit": "lint-staged",
     "cm": "git-cz"
   },
   "dependencies": {
@@ -65,10 +65,12 @@
     }
   },
   "lint-staged": {
-    "*.js": [
-      "prettier --single-quote --semi=false --write",
-      "eslint --fix",
-      "git add"
-    ]
+    "linters": {
+      "*.js": [
+        "prettier --single-quote --semi=false --write",
+        "eslint --fix",
+        "git add"
+      ]
+    }
   }
 }
