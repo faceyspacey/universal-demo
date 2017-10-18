@@ -50,6 +50,7 @@ module.exports = {
     'no-shadow': 0,
     'no-use-before-define': 0,
     'no-param-reassign': 0,
+    'function-paren-newline': ['error', 'consistent'],
     'react/prop-types': 0,
     'react/no-render-return-value': 0,
     'no-confusing-arrow': 0,
