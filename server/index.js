@@ -1,6 +1,6 @@
 require('colors')
 const express = require('express')
-const webpack = require('webpack') // aliased to webpack-universal
+const webpack = require('webpack')
 const noFavicon = require('express-no-favicons')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
