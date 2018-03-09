@@ -6,6 +6,9 @@ import Loading from './Loading'
 import NotFound from './NotFound'
 import { pages, nextIndex, indexFromPath } from '../utils'
 
+import('../PlainImportTest').then(({ Paragraph }) =>
+  console.log('PARA', { Paragraph }))
+
 const UniversalComponent = universal(props => import(`./${props.page}`), {
   minDelay: 1200,
   loading: Loading,
