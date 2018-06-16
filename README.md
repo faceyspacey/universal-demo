@@ -3,7 +3,7 @@
 </a>
 
 # Universal Demo
-
+>This demo has been updated to a Webpack 4 implementation
 <p align="center">
   <img src="https://cdn.reactlandia.com/react-universal-component-demo-twitter.gif" />
 </p>
