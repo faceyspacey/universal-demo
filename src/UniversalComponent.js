@@ -16,8 +16,7 @@ const determineHowToLoad = props =>
  * props on the JSX component can include any of the universal components props as well, like onLoad, onError, error, timeout...
  */
 const UniversalComponent = universal(determineHowToLoad, {
-  onError: (error, { isServer }) => {
-    // eslint-disable-line no-unused-vars
+  onError: error => {
     throw error
   },
   minDelay: 1200,
