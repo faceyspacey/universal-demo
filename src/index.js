@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import createHistory from 'history/createBrowserHistory'
-import AppContainer from 'react-hot-loader/lib/AppContainer'
+import { AppContainer } from 'react-hot-loader'
 import App from './components/App'
 
 const history = createHistory()

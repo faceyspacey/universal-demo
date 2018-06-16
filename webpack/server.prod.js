@@ -13,7 +13,7 @@ module.exports = {
   entry: [entry],
   output: {
     path: output,
-    filename: '[name].js',
+    filename: 'main.js',
     libraryTarget: 'commonjs2'
   },
   module: {

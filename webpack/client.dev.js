@@ -8,6 +8,7 @@ module.exports = {
   target: 'web',
   // devtool: 'source-map',
   devtool: 'eval',
+  mode: 'development',
   entry: [
     'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=false&quiet=false&noInfo=false',
     'react-hot-loader/patch',
@@ -19,6 +20,7 @@ module.exports = {
     path: path.resolve(__dirname, '../buildClient'),
     publicPath: '/static/'
   },
+  stats: 'verbose',
   module: {
     rules: [
       {
@@ -28,20 +30,19 @@ module.exports = {
       },
       {
         test: /\.styl$/,
-        use: ExtractCssChunks.extract({
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true,
-                localIdentName: '[name]__[local]--[hash:base64:5]'
-              }
-            },
-            {
-              loader: 'stylus-loader'
+        use: [
+          ExtractCssChunks.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[name]__[local]--[hash:base64:5]'
             }
-          ]
-        })
+          },
+          {
+            loader: 'stylus-loader'
+          }
+        ]
       }
     ]
   },
@@ -51,11 +52,6 @@ module.exports = {
   plugins: [
     new WriteFilePlugin(),
     new ExtractCssChunks(),
-    new webpack.optimize.CommonsChunkPlugin({
-      names: ['bootstrap'], // needed to put webpack bootstrap code before chunks
-      filename: '[name].js',
-      minChunks: Infinity
-    }),
 
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),

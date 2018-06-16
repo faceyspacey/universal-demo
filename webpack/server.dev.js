@@ -25,10 +25,10 @@ externals['react-dom/server'] = 'commonjs react-dom/server'
 
 module.exports = {
   name: 'server',
+  devtool: 'source-map',
   target: 'node',
-  // devtool: 'source-map',
-  devtool: 'eval',
-  entry: [entry],
+  mode: 'development',
+  entry: ['regenerator-runtime/runtime.js', entry],
   externals,
   output: {
     path: output,
@@ -68,7 +68,15 @@ module.exports = {
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
     }),
+    // scope hoisting, concatenates modules which usually were each wrapped in their own closure
+    // one of the trade-offs of webpack, this remedies that and also reduces bloat and execution time
+    // new webpack.optimize.ModuleConcatenationPlugin(),
 
+    // Removes dyplicate imports by shuffling the dependencies into the correct order from when first needed
+    // new webpack.optimize.OccurrenceOrderPlugin(),
+
+    // uses hashes for identifying modules
+    // new webpack.HashedModuleIdsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('development')
