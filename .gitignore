@@ -4,3 +4,4 @@ buildClient
 buildServer
 .vscode
 .idea
+.DS_Store

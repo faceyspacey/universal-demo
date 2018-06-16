@@ -12,12 +12,6 @@ const determineHowToLoad = props =>
     ? () => props.page()
     : import(`./${props.page}`)
 
-/**
- *
- * @type {universal.UniversalComponent<any>}
- * @param props - the props from the JSX component, these will be passed into the component as well
- * props on the JSX component can include any of the universal components props as well, like onLoad, onError, error, timeout...
- */
 const UniversalComponent = universal(determineHowToLoad, {
   onError: error => {
     throw error

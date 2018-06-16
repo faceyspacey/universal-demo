@@ -45,12 +45,13 @@ module.exports = {
   },
   plugins: [
     new ExtractCssChunks(),
-
+    new webpack.optimize.ModuleConcatenationPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new webpack.NamedModulesPlugin() // not needed for strategy to work (just good practice)
+    new webpack.HashedModuleIdsPlugin() // not needed for strategy to work (just good practice)
   ]
 }
