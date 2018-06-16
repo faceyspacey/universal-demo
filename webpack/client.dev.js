@@ -6,8 +6,7 @@ const ExtractCssChunks = require('extract-css-chunks-webpack-plugin')
 module.exports = {
   name: 'client',
   target: 'web',
-  // devtool: 'source-map',
-  devtool: 'eval',
+  devtool: 'inline-source-map',
   mode: 'development',
   entry: [
     'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=false&quiet=false&noInfo=false',
@@ -20,7 +19,6 @@ module.exports = {
     path: path.resolve(__dirname, '../buildClient'),
     publicPath: '/static/'
   },
-  stats: 'verbose',
   module: {
     rules: [
       {

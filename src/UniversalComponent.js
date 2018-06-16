@@ -4,6 +4,9 @@ import universal from 'react-universal-component'
 import Loading from './components/Loading'
 import NotFound from './components/NotFound'
 
+// small function that allows page to be a string or a dynamic import function
+// <UniversalComponent page={()=>{import('../../someFolder/Component.js')}}
+// Its great for complex folder structures. You can leverage code completeion
 const determineHowToLoad = props =>
   typeof props.page !== 'string'
     ? () => props.page()
@@ -44,6 +47,6 @@ UniversalComponent.propTypes = {
   loadingTransition: PropTypes.bool
 }
 
-const loadComponent = file => universal(determineHowToLoad({ component: file }))
+const loadComponent = file => universal(determineHowToLoad({ page: file }))
 export default UniversalComponent
 export { loadComponent, universal }
