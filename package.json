@@ -1,7 +1,7 @@
 {
   "name": "flush-requires-boilerplate-webpack-chunknames",
-  "description": "A boilerplate showing how to achieve Universal Code-Splitting and Universal HMR with react-universal-component, webpack-flush-chunks and extract-css-chunks-webpack-plugin",
-  "version": "2.0.0",
+  "description": "A boilerplate showing how to achieve Universal Code-Splitting and Universal HMR with Webpack 4, react-universal-component, webpack-flush-chunks and extract-css-chunks-webpack-plugin",
+  "version": "3.0.0",
   "main": "server/index.js",
   "author": "James Gillmore <james@faceyspacey.com>",
   "contributors": [
