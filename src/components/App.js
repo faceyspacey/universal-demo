@@ -1,16 +1,8 @@
 import React from 'react'
-import universal from 'react-universal-component'
 import styles from '../css/App'
 import UsageHero from './UsageHero'
-import Loading from './Loading'
-import NotFound from './NotFound'
 import { pages, nextIndex, indexFromPath } from '../utils'
-
-const UniversalComponent = universal(props => import(`./${props.page}`), {
-  minDelay: 1200,
-  loading: Loading,
-  error: NotFound
-})
+import UniversalComponent from '../UniversalComponent'
 
 export default class App extends React.Component {
   render() {
@@ -27,7 +19,7 @@ export default class App extends React.Component {
         <UsageHero page={page} />
 
         <UniversalComponent
-          page={page}
+          page={`components/${page}`}
           onBefore={this.beforeChange}
           onAfter={this.afterChange}
           onError={this.handleError}

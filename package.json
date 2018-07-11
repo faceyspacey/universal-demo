@@ -1,9 +1,12 @@
 {
   "name": "flush-requires-boilerplate-webpack-chunknames",
   "description": "A boilerplate showing how to achieve Universal Code-Splitting and Universal HMR with react-universal-component, webpack-flush-chunks and extract-css-chunks-webpack-plugin",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "server/index.js",
   "author": "James Gillmore <james@faceyspacey.com>",
+  "contributors": [
+    "Zackary Jackson <zackary.l.jackson@gmail.com> (https://github.com/ScriptedAlchemy)"
+  ],
   "license": "MIT",
   "scripts": {
     "start": "npm run clean && cross-env NODE_ENV=development node server/index.js",
@@ -14,50 +17,50 @@
     "cm": "git-cz"
   },
   "dependencies": {
-    "colors": "^1.1.2",
+    "colors": "^1.3.0",
     "express": "^4.15.2",
     "express-no-favicons": "^0.0.1",
     "history": "^4.6.3",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-universal-component": "^2.5.1",
-    "webpack-dev-middleware": "^1.11.0",
-    "webpack-flush-chunks": "^1.1.23"
+    "webpack-dev-middleware": "^3.1.3",
+    "webpack-flush-chunks": "^2.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
-    "babel-eslint": "^8.0.1",
-    "babel-loader": "^7.1.2",
-    "babel-plugin-universal-import": "^1.2.6",
+    "babel-eslint": "^8.2.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-universal-import": "^3.0.0",
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-2": "^6.22.0",
     "babel-watch": "^2.0.6",
     "commitizen": "^2.9.6",
-    "cross-env": "^5.0.1",
+    "cross-env": "^5.1.6",
     "css-loader": "^0.28.7",
     "cz-conventional-changelog": "^2.0.0",
-    "eslint": "^4.8.0",
+    "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.0.0",
     "eslint-plugin-flowtype": "^2.32.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
-    "extract-css-chunks-webpack-plugin": "^2.0.17",
+    "extract-css-chunks-webpack-plugin": "^3.0.5",
     "husky": "^0.14.3",
     "lint-staged": "^4.2.3",
     "poststylus": "^1.0.0",
     "prettier": "^1.5.3",
-    "react-hot-loader": "^3.0.0",
+    "react-hot-loader": "^4.3.3",
     "rimraf": "^2.6.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "travis-github-status": "^1.4.0",
-    "webpack": "^3.5.1",
-    "webpack-hot-middleware": "^2.17.1",
-    "webpack-hot-server-middleware": "^0.1.0",
-    "write-file-webpack-plugin": "^4.1.0"
+    "webpack": "4.8.3",
+    "webpack-hot-middleware": "^2.22.2",
+    "webpack-hot-server-middleware": "^0.5.0",
+    "write-file-webpack-plugin": "^4.3.2"
   },
   "config": {
     "commitizen": {

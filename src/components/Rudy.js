@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '../css/Rudy'
 
-export default () =>
+export default () => (
   <div className={styles.container}>
     <img src='https://cdn.reactlandia.com/rudy-logo.png' />
     <span>Rudy loaded! </span>
@@ -16,3 +16,4 @@ export default () =>
       {' will be renamed this soon'}
     </span>
   </div>
+)
