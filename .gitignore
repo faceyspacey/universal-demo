@@ -3,3 +3,5 @@ node_modules
 buildClient
 buildServer
 .vscode
+.idea
+.DS_Store

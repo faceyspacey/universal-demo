@@ -13,7 +13,7 @@ module.exports = {
   entry: [entry],
   output: {
     path: output,
-    filename: '[name].js',
+    filename: 'main.js',
     libraryTarget: 'commonjs2'
   },
   module: {
@@ -45,14 +45,16 @@ module.exports = {
     extensions: ['.js', '.css', '.styl']
   },
   plugins: [
+    new webpack.optimize.ModuleConcatenationPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
     }),
-
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
       }
-    })
+    }),
+    new webpack.HashedModuleIdsPlugin()
   ]
 }

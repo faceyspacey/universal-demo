@@ -25,10 +25,10 @@ externals['react-dom/server'] = 'commonjs react-dom/server'
 
 module.exports = {
   name: 'server',
+  devtool: 'source-map',
   target: 'node',
-  // devtool: 'source-map',
-  devtool: 'eval',
-  entry: [entry],
+  mode: 'development',
+  entry: ['regenerator-runtime/runtime.js', entry],
   externals,
   output: {
     path: output,
@@ -68,7 +68,6 @@ module.exports = {
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
     }),
-
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('development')

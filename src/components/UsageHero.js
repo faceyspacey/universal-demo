@@ -1,9 +1,12 @@
 import React from 'react'
 import styles from '../css/UsageHero'
 
-export default ({ page }) =>
+export default ({ page }) => (
   <div className={styles.usageHero}>
-    <img src='https://cdn.reactlandia.com/faceyspacey-white-logo.png' />
+    <img
+      src='https://cdn.reactlandia.com/faceyspacey-white-logo.png'
+      alt='FaceySpacey'
+    />
 
     <div>
       <h2>
@@ -16,3 +19,4 @@ export default ({ page }) =>
       </h3>
     </div>
   </div>
+)
