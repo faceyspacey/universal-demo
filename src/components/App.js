@@ -4,6 +4,11 @@ import UsageHero from './UsageHero'
 import { pages, nextIndex, indexFromPath } from '../utils'
 import UniversalComponent from '../UniversalComponent'
 
+const UniversalParagraph = universal(
+  import('./group.js').then(({ Paragraph }) => Paragraph)
+)
+const UniversalBold = universal(import('./group.js').then(({ Bold }) => Bold))
+
 export default class App extends React.Component {
   render() {
     const { index, done, loading } = this.state
@@ -34,6 +39,11 @@ all loaded ✔
         <button type='button' className={buttonClass} onClick={this.changePage}>
           {this.buttonText()}
         </button>
+
+        <UniversalParagraph>
+          <UniversalBold>This is Bold Text</UniversalBold>
+          and some not bold text
+        </UniversalParagraph>
 
         <p>
           <span>
