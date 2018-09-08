@@ -5,3 +5,4 @@ buildServer
 .vscode
 .idea
 .DS_Store
+.history
