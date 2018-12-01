@@ -1,8 +1,9 @@
 import React from 'react'
-import styles from '../css/FaceySpacey'
+// @ts-ignore
+import styles from '../css/Bar'
 
 export default () => (
   <div className={styles.container}>
-    <span>FaceySpacey -- loaded!!</span>
+    <span>Bar -- loaded!!!</span>
   </div>
 )

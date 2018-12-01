@@ -1,0 +1,5 @@
+{
+  "exec": "ts-node",
+  "ext": "js jsx ts tsx",
+  "watch": ["src/server/**/*"]
+}

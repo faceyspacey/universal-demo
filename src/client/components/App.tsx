@@ -1,10 +1,22 @@
-import React from 'react'
+import * as React from 'react'
+// @ts-ignore
 import styles from '../css/App'
 import UsageHero from './UsageHero'
 import { pages, nextIndex, indexFromPath } from '../utils'
 import UniversalComponent from '../UniversalComponent'
 
-export default class App extends React.Component {
+interface AppState {
+  index: number
+  done: boolean
+  loading: boolean
+  error: boolean
+}
+
+interface AppProps {
+  history: any
+}
+
+export default class App extends React.Component<AppProps, AppState> {
   render() {
     const { index, done, loading } = this.state
     const page = pages[index]

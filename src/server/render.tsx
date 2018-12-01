@@ -1,11 +1,12 @@
-import React from 'react'
+import * as React from 'react'
 import ReactDOM from 'react-dom/server'
+import { Request, Response } from "express";
 import createHistory from 'history/createMemoryHistory'
 import { flushChunkNames } from 'react-universal-component/server'
 import flushChunks from 'webpack-flush-chunks'
-import App from '../src/components/App'
+import App from '../client/components/App'
 
-export default ({ clientStats }) => (req, res) => {
+export default ({ clientStats }) => (req: Request, res: Response) => {
   const history = createHistory({ initialEntries: [req.path] })
   const app = ReactDOM.renderToString(<App history={history} />)
   const chunkNames = flushChunkNames()
@@ -28,7 +29,7 @@ export default ({ clientStats }) => (req, res) => {
       <html>
         <head>
           <meta charset="utf-8">
-          <title>react-universal-component-boilerplate</title>
+          <title>react-universal-component-boilerplate-typescript</title>
           ${styles}
         </head>
         <body>

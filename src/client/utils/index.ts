@@ -9,9 +9,9 @@ export const pages = [
   'FaceySpacey'
 ]
 
-export const nextIndex = index => ++index % pages.length
+export const nextIndex = (index: number) => ++index % pages.length
 
-export const indexFromPath = path => {
+export const indexFromPath = (path: string): number => {
   path = path === '/' ? '/Foo' : path
   return pages.indexOf(path.substr(1))
 }
