@@ -1,7 +1,10 @@
 node_modules
 *.log
-buildClient
-buildServer
 .vscode
 .idea
 .DS_Store
+build
+artifacts
+src/**/*.js
+src/**/*.js.map
+yarn.lock

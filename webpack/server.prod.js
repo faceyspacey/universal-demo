@@ -1,10 +1,11 @@
 const path = require('path')
 const webpack = require('webpack')
+const { CheckerPlugin } = require('awesome-typescript-loader')
 
 const res = p => path.resolve(__dirname, p)
 
-const entry = res('../server/render.js')
-const output = res('../buildServer')
+const entry = res('../src/server/render.tsx')
+const output = res('../build/server')
 
 module.exports = {
   name: 'server',
@@ -22,6 +23,10 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: 'babel-loader'
+      },
+      {
+        test: /\.tsx?$/,
+        loader: 'awesome-typescript-loader'
       },
       {
         test: /\.styl$/,
@@ -42,9 +47,10 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.css', '.styl']
+    extensions: ['.ts', '.tsx', '.js', '.css', '.styl']
   },
   plugins: [
+    new CheckerPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.LimitChunkCountPlugin({

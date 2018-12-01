@@ -1,5 +1,6 @@
-import React from 'react'
-import styles from '../css/Loading'
+import React from "react"
+// @ts-ignore
+import styles from "../css/Loading"
 
 export default ({ page }) => (
   <div className={styles[page]}>

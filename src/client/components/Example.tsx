@@ -1,5 +1,6 @@
-import React from 'react'
-import styles from '../css/Example'
+import React from "react"
+// @ts-ignore
+import styles from "../css/Example"
 
 export default () => (
   <div className={styles.container}>

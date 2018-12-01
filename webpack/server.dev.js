@@ -1,13 +1,14 @@
 const fs = require('fs')
 const path = require('path')
 const webpack = require('webpack')
+const { CheckerPlugin } = require('awesome-typescript-loader')
 const WriteFilePlugin = require('write-file-webpack-plugin')
 
 const res = p => path.resolve(__dirname, p)
 
 const nodeModules = res('../node_modules')
-const entry = res('../server/render.js')
-const output = res('../buildServer')
+const entry = res('../src/server/render.tsx')
+const output = res('../build/server')
 
 // if you're specifying externals to leave unbundled, you need to tell Webpack
 // to still bundle `react-universal-component`, `webpack-flush-chunks` and
@@ -43,6 +44,10 @@ module.exports = {
         use: 'babel-loader'
       },
       {
+        test: /\.tsx?$/,
+        loader: 'awesome-typescript-loader'
+      },
+      {
         test: /\.styl$/,
         exclude: /node_modules/,
         use: [
@@ -61,9 +66,10 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.css', '.styl']
+    extensions: ['.ts', '.tsx', '.js', '.css', '.styl']
   },
   plugins: [
+    new CheckerPlugin(),
     new WriteFilePlugin(),
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
