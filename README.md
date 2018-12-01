@@ -3,7 +3,7 @@
 </a>
 
 # Universal Demo
->This demo has been updated to a Webpack 4 implementation
+>This demo has been updated to a Webpack 4 implementation & TypeScript ❤️
 <p align="center">
   <img src="https://cdn.reactlandia.com/react-universal-component-demo-twitter.gif" />
 </p>
@@ -13,7 +13,6 @@ This is a demo of how to use the *Universal* family of packages:
 - [react-universal-component](https://github.com/faceyspacey/react-universal-component) 
 - [webpack-flush-chunks](https://github.com/faceyspacey/webpack-flush-chunks)
 - [extract-css-chunks-webpack-plugin](https://github.com/faceyspacey/extract-css-chunks-webpack-plugin)
-- [babel-plugin-universal-import](https://github.com/faceyspacey/babel-plugin-universal-import) 
 
 Feel free to use it as a boilerpate.
 
