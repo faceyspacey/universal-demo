@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react"
 // @ts-ignore
-import styles from '../css/Universal'
+import styles from "../css/Universal"
 
 export default () => (
   <div className={styles.container}>

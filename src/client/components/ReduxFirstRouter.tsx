@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react"
 // @ts-ignore
-import styles from '../css/ReduxFirstRouter'
+import styles from "../css/ReduxFirstRouter"
 
 export default () => (
   <div className={styles.container}>

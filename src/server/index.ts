@@ -1,18 +1,18 @@
-var colors = require('colors/safe');
-const express = require('express')
-const webpack = require('webpack')
-const noFavicon = require('express-no-favicons')
-const webpackDevMiddleware = require('webpack-dev-middleware')
-const webpackHotMiddleware = require('webpack-hot-middleware')
-const webpackHotServerMiddleware = require('webpack-hot-server-middleware')
-const clientConfig = require('../../webpack/client.dev')
-const serverConfig = require('../../webpack/server.dev')
-const clientConfigProd = require('../../webpack/client.prod')
-const serverConfigProd = require('../../webpack/server.prod')
+let colors = require("colors/safe")
+const express = require("express")
+const webpack = require("webpack")
+const noFavicon = require("express-no-favicons")
+const webpackDevMiddleware = require("webpack-dev-middleware")
+const webpackHotMiddleware = require("webpack-hot-middleware")
+const webpackHotServerMiddleware = require("webpack-hot-server-middleware")
+const clientConfig = require("../../webpack/client.dev")
+const serverConfig = require("../../webpack/server.dev")
+const clientConfigProd = require("../../webpack/client.prod")
+const serverConfigProd = require("../../webpack/server.prod")
 
 const { publicPath } = clientConfig.output
 const outputPath = clientConfig.output.path
-const DEV = process.env.NODE_ENV === 'development'
+const DEV = process.env.NODE_ENV === "development"
 const app = express()
 app.use(noFavicon())
 
@@ -21,7 +21,9 @@ const done = () =>
   !isBuilt &&
   app.listen(3000, () => {
     isBuilt = true
-    console.log(colors.magenta('BUILD COMPLETE -- Listening @ http://localhost:3000'))
+    console.log(
+      colors.magenta("BUILD COMPLETE -- Listening @ http://localhost:3000")
+    )
   })
 
 if (DEV) {
@@ -35,11 +37,10 @@ if (DEV) {
   app.use(webpackHotServerMiddleware(compiler))
 
   devMiddleware.waitUntilValid(done)
-}
-else {
+} else {
   webpack([clientConfigProd, serverConfigProd]).run((err, stats) => {
     const clientStats = stats.toJson().children[0]
-    const serverRender = require('../../build/server/main.js').default
+    const serverRender = require("../../build/server/main.js").default
 
     app.use(publicPath, express.static(outputPath))
     // app.get("*", render);

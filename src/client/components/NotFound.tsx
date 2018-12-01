@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react"
 // @ts-ignore
-import styles from '../css/NotFound'
+import styles from "../css/NotFound"
 
 export default ({ error }) => (
   <div className={styles.container}>
