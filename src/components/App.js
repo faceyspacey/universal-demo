@@ -59,11 +59,20 @@ and view the source in Chrome for the real goods
       done: false,
       error: false
     }
+  }
 
-    history.listen(({ pathname }) => {
+  componentDidMount() {
+    const { history } = this.props
+    this.unregisterHistoryListener = history.listen(({ pathname }) => {
       const index = indexFromPath(pathname)
       this.setState({ index })
     })
+  }
+
+  componentWillUnmount() {
+    if (this.unregisterHistoryListener) {
+      this.unregisterHistoryListener()
+    }
   }
 
   changePage = () => {
