@@ -5,6 +5,5 @@ node_modules
 .DS_Store
 build
 artifacts
-src/**/*.js
-src/**/*.js.map
 yarn.lock
+.history

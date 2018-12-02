@@ -9,6 +9,7 @@
     "lib": ["es6", "es7", "es2017", "dom"],
     "module": "esNext",
     "moduleResolution": "node",
+    "noEmit": true,
     "noImplicitAny": false,
     "noImplicitReturns": true,
     "noImplicitThis": true,

@@ -4,6 +4,7 @@ import styles from "../css/App"
 import UsageHero from "./UsageHero"
 import { pages, nextIndex, indexFromPath } from "../utils"
 import UniversalComponent from "../UniversalComponent"
+import { History } from "history"
 
 interface AppState {
   index: number
@@ -13,10 +14,12 @@ interface AppState {
 }
 
 interface AppProps {
-  history: any
+  history: History
 }
 
 export default class App extends React.Component<AppProps, AppState> {
+  private unregisterHistoryListener: () => void
+
   render() {
     const { index, done, loading } = this.state
     const page = pages[index]
@@ -62,11 +65,20 @@ export default class App extends React.Component<AppProps, AppState> {
       done: false,
       error: false
     }
+  }
 
-    history.listen(({ pathname }) => {
+  componentDidMount() {
+    const { history } = this.props
+    this.unregisterHistoryListener = history.listen(({ pathname }) => {
       const index = indexFromPath(pathname)
       this.setState({ index })
     })
+  }
+
+  componentWillUnmount() {
+    if (this.unregisterHistoryListener) {
+      this.unregisterHistoryListener()
+    }
   }
 
   changePage = () => {
