@@ -10,9 +10,9 @@
   "license": "MIT",
   "scripts": {
     "start": "yarn run start:dev",
-    "start:dev": "npm run clean && cross-env NODE_ENV=development nodemon ./src/server",
-    "start:prod": "npm run clean && cross-env NODE_ENV=production nodemon ./src/server",
-    "build:ts": "tsc -p . --pretty",
+    "start:dev": "webpack-dev-server --config=webpack/dev.js",
+    "start:local": "yarn clean && cross-env NODE_ENV=development nodemon ./src/server",
+    "start:prod": "yarn clean && cross-env NODE_ENV=production ts-node ./src/server",
     "watch:ts": "tsc -p . --pretty -w",
     "format": "prettier --write {.,**}/*.{ts,tsx} && tslint --fix -p . && prettier --single-quote --semi=false --write 'webpack/*.js' && eslint --fix webpack",
     "clean": "rimraf build",
@@ -79,7 +79,6 @@
     "webpack-dev-server": "^3.1.10",
     "webpack-hot-middleware": "^2.24.3",
     "webpack-hot-server-middleware": "^0.5.0",
-    "webpack-manifest-plugin": "^2.0.4",
     "write-file-webpack-plugin": "^4.5.0"
   },
   "config": {
