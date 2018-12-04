@@ -1,16 +1,17 @@
 const path = require('path')
 const webpack = require('webpack')
+const { CheckerPlugin } = require('awesome-typescript-loader')
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin')
 
 module.exports = {
   name: 'client',
   target: 'web',
   devtool: 'source-map',
-  entry: [path.resolve(__dirname, '../src/index.js')],
+  entry: [path.resolve(__dirname, '../src/client/index.tsx')],
   output: {
     filename: '[name].[chunkhash].js',
     chunkFilename: '[name].[chunkhash].js',
-    path: path.resolve(__dirname, '../buildClient'),
+    path: path.resolve(__dirname, '../build/client'),
     publicPath: '/static/'
   },
   stats: 'verbose',
@@ -20,6 +21,10 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: 'babel-loader'
+      },
+      {
+        test: /\.(ts|tsx)$/,
+        loader: 'awesome-typescript-loader'
       },
       {
         test: /\.styl$/,
@@ -41,9 +46,10 @@ module.exports = {
   },
   mode: 'development',
   resolve: {
-    extensions: ['.js', '.css', '.styl']
+    extensions: ['.ts', '.tsx', '.js', '.css', '.styl']
   },
   plugins: [
+    new CheckerPlugin(),
     new ExtractCssChunks(),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),

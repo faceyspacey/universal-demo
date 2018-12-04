@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const { CheckerPlugin } = require('awesome-typescript-loader')
 const WriteFilePlugin = require('write-file-webpack-plugin') // here so you can see what chunks are built
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin')
 
@@ -11,12 +12,12 @@ module.exports = {
   entry: [
     'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=false&quiet=false&noInfo=false',
     'react-hot-loader/patch',
-    path.resolve(__dirname, '../src/index.js')
+    path.resolve(__dirname, '../src/client/index.tsx')
   ],
   output: {
     filename: '[name].js',
     chunkFilename: '[name].js',
-    path: path.resolve(__dirname, '../buildClient'),
+    path: path.resolve(__dirname, '../build/client'),
     publicPath: '/static/'
   },
   module: {
@@ -25,6 +26,10 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: 'babel-loader'
+      },
+      {
+        test: /\.(ts|tsx)$/,
+        loader: 'awesome-typescript-loader'
       },
       {
         test: /\.styl$/,
@@ -45,9 +50,10 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.css', '.styl']
+    extensions: ['.ts', '.tsx', '.js', '.css', '.styl']
   },
   plugins: [
+    new CheckerPlugin(),
     new WriteFilePlugin(),
     new ExtractCssChunks(),
 

@@ -1,15 +1,20 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import universal from 'react-universal-component'
-import Loading from './components/Loading'
-import NotFound from './components/NotFound'
+import PropTypes from "prop-types"
+import universal from "react-universal-component"
+import Loading from "./components/Loading"
+import NotFound from "./components/NotFound"
 
 // small function that allows page to be a string or a dynamic import function
 // <UniversalComponent page={()=>{import('../../someFolder/Component.js')}}
 // Its great for complex folder structures. You can leverage code completion
-const determineHowToLoad = ({ page }) => typeof page !== 'string' ? () => page() : import(`./${page}`)
+const determineHowToLoad = props =>
+  Promise.all([
+    import(/* webpackChunkName: '[request]' */ `./${props.page}`)
+  ]).then(proms => proms[0])
 
 const UniversalComponent = universal(determineHowToLoad, {
+  chunkName: props => props.page,
+  // @ts-ignore
+  resolve: props => require.resolveWeak(`./${props.page}`),
   onError: error => {
     throw error
   },

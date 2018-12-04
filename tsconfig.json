@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "experimentalDecorators": true,
+    "outDir": "artifacts",
+    "jsx": "react",
+    "lib": ["es6", "es7", "es2017", "dom"],
+    "module": "esNext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "target": "es6",
+  },
+  "exclude": ["node_modules", "build"],
+  "include": ["./src/**/*"]
+}
