@@ -4,6 +4,7 @@ const { CheckerPlugin } = require('awesome-typescript-loader')
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin')
 
 module.exports = {
+  mode: 'production',
   name: 'client',
   target: 'web',
   devtool: 'source-map',
@@ -44,7 +45,6 @@ module.exports = {
       }
     ]
   },
-  mode: 'development',
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.css', '.styl']
   },
