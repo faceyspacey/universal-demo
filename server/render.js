@@ -8,15 +8,14 @@ import App from '../src/components/App'
 export default ({ clientStats }) => (req, res) => {
   const history = createHistory({ initialEntries: [req.path] })
   const app = ReactDOM.renderToString(<App history={history} />)
+
   const chunkNames = flushChunkNames()
 
   const {
-    js,
-    styles,
-    cssHash,
-    scripts,
-    stylesheets
-  } = flushChunks(clientStats, { chunkNames })
+    js, styles, scripts, stylesheets
+  } = flushChunks(clientStats, {
+    chunkNames
+  })
 
   console.log('PATH', req.path)
   console.log('DYNAMIC CHUNK NAMES RENDERED', chunkNames)
@@ -33,9 +32,8 @@ export default ({ clientStats }) => (req, res) => {
         </head>
         <body>
           <div id="root">${app}</div>
-          ${cssHash}
-          ${js}
         </body>
+        ${js}
       </html>`
   )
 }

@@ -13,14 +13,8 @@ export default class App extends React.Component {
 
     return (
       <div className={styles.container}>
-        <h1>
-Hello Reactlandia
-        </h1>
-        {done && (
-        <div className={styles.checkmark}>
-all loaded ✔
-        </div>
-        )}
+        <h1>Hello Reactlandia</h1>
+        {done && <div className={styles.checkmark}>all loaded</div>}
 
         <UsageHero page={page} />
 
@@ -36,12 +30,8 @@ all loaded ✔
         </button>
 
         <p>
-          <span>
-*why are you looking at this? refresh the page
-          </span>
-          <span>
-and view the source in Chrome for the real goods
-          </span>
+          <span>*why are you looking at this? refresh the page</span>
+          <span>and view the source in Chrome for the real goods</span>
         </p>
       </div>
     )

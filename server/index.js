@@ -18,9 +18,8 @@ app.use(noFavicon())
 
 let isBuilt = false
 
-const done = () =>
-  !isBuilt &&
-  app.listen(3000, () => {
+const done = () => !isBuilt
+  && app.listen(3000, () => {
     isBuilt = true
     console.log('BUILD COMPLETE -- Listening @ http://localhost:3000'.magenta)
   })

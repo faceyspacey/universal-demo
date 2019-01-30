@@ -15,7 +15,8 @@ const UniversalComponent = universal(determineHowToLoad, {
   },
   minDelay: 1200,
   loading: Loading,
-  error: NotFound
+  error: NotFound,
+  ignoreBabelRename: false
 })
 
 UniversalComponent.propTypes = {

@@ -6,18 +6,9 @@ import App from './components/App'
 
 const history = createHistory()
 
-const render = App => ReactDOM.hydrate(
-  <AppContainer>
-    <App history={history} />
-  </AppContainer>,
+const render = AppRoot => ReactDOM.render(
+  <AppRoot history={history} />,
   document.getElementById('root')
 )
-
-if (process.env.NODE_ENV === 'development' && module.hot) {
-  module.hot.accept('./components/App.js', () => {
-    const App = require('./components/App').default // eslint-ignore-line
-    render(App)
-  })
-}
 
 render(App)
