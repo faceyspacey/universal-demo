@@ -1,19 +1,9 @@
 {
-  "presets": [
-    "es2015",
-    "react",
-    "stage-0",
-    "stage-2"
-  ],
-  "plugins": [
-    "syntax-dynamic-import",
-    "universal-import"
-  ],
+  "presets": ["es2015", "react", "stage-2"],
+  "plugins": ["universal-import"],
   "env": {
     "development": {
-      "plugins": [
-        "react-hot-loader/babel"
-      ]
+      "plugins": ["react-hot-loader/babel"]
     }
   }
 }

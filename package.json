@@ -17,8 +17,7 @@
     "cm": "git-cz"
   },
   "dependencies": {
-    "babel-plugin-syntax-dynamic-import": "^6.18.0",
-    "colors": "^1.3.3",
+    "colors": "^1.3.2",
     "express": "^4.16.4",
     "express-no-favicons": "^0.0.1",
     "extract-css-chunks-webpack-plugin": "^3.3.2",
@@ -35,10 +34,9 @@
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
     "babel-loader": "^7.1.5",
-    "babel-plugin-universal-import": "^3.1.2",
+    "babel-plugin-universal-import": "^4.0.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "babel-watch": "^2.0.8",
     "commitizen": "^3.0.5",
