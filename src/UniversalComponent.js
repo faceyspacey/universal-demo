@@ -7,7 +7,7 @@ import NotFound from './components/NotFound'
 // small function that allows page to be a string or a dynamic import function
 // <UniversalComponent page={()=>{import('../../someFolder/Component.js')}}
 // Its great for complex folder structures. You can leverage code completion
-const determineHowToLoad = ({ page }) => typeof page !== 'string' ? () => page() : import(`./${page}`)
+const determineHowToLoad = ({ page }) => typeof page !== 'string' ? () => page() : () => import(`./components/${page}`)
 
 const UniversalComponent = universal(determineHowToLoad, {
   onError: error => {
@@ -16,7 +16,7 @@ const UniversalComponent = universal(determineHowToLoad, {
   minDelay: 1200,
   loading: Loading,
   error: NotFound,
-  ignoreBabelRename: false
+  ignoreBabelRename: true
 })
 
 UniversalComponent.propTypes = {

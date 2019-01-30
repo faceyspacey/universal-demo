@@ -15,10 +15,11 @@ module.exports = {
   ],
   output: {
     filename: '[name].js',
-    chunkFilename: '[name].js',
+    chunkFilename: '[name].chunk.js',
     path: path.resolve(__dirname, '../buildClient'),
     publicPath: '/static/'
   },
+  cache: false,
   module: {
     rules: [
       {
@@ -50,7 +51,7 @@ module.exports = {
   plugins: [
     new WriteFilePlugin(),
     new ExtractCssChunks(),
-
+    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
