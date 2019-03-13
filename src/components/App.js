@@ -19,7 +19,7 @@ export default class App extends React.Component {
         <UsageHero page={page} />
 
         <UniversalComponent
-          page={`components/${page}`}
+          page={() => import(`./${page}`)}
           onBefore={this.beforeChange}
           onAfter={this.afterChange}
           onError={this.handleError}

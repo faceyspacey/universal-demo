@@ -4,10 +4,7 @@ import styles from '../css/Rudy'
 export default () => (
   <div className={styles.container}>
     <img src='https://cdn.reactlandia.com/rudy-logo.png' alt='Rudy Logo' />
-    <span>
-Rudy loaded!
-      {' '}
-    </span>
+    <span>Rudy loaded! </span>
     <span style={{ fontSize: 18 }}>
       {' - secret:  '}
       <a
