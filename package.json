@@ -54,7 +54,7 @@
     "lint-staged": "^4.2.3",
     "poststylus": "^1.0.0",
     "prettier": "^1.16.1",
-    "react-hot-loader": "^4.6.3",
+    "react-hot-loader": "^4.8.2",
     "rimraf": "^2.6.3",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",

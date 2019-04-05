@@ -1,10 +1,11 @@
 import React from 'react'
+import { hot } from 'react-hot-loader/root'
 import styles from '../css/App'
 import UsageHero from './UsageHero'
 import { pages, nextIndex, indexFromPath } from '../utils'
 import UniversalComponent from '../UniversalComponent'
 
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     const { index, done, loading } = this.state
     const page = pages[index]
@@ -101,3 +102,5 @@ export default class App extends React.Component {
     return loading ? 'LOADING...' : 'CHANGE PAGE'
   }
 }
+
+export default hot(App)
