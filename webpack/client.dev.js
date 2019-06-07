@@ -30,7 +30,11 @@ module.exports = {
       {
         test: /\.styl$/,
         use: [
-          ExtractCssChunks.loader,
+          {
+            loader: ExtractCssChunks.loader,
+            hot: true,
+            reloadAll: true
+          },
           {
             loader: 'css-loader',
             options: {
