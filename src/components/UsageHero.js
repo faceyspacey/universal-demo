@@ -9,9 +9,7 @@ export default ({ page }) => (
     />
 
     <div>
-      <h2>
-        {'universal(props => import(`./${props.page}`))'}
-      </h2>
+      <h2>{'universal(props => import(`./${props.page}`))'}</h2>
       <h3>
         {"<UniversalComponent page='"}
         {page}

@@ -1,10 +1,24 @@
 import React from 'react'
+import { hot } from 'react-hot-loader/root'
+import universal from 'react-universal-component'
 import styles from '../css/App'
 import UsageHero from './UsageHero'
 import { pages, nextIndex, indexFromPath } from '../utils'
-import UniversalComponent from '../UniversalComponent'
+import Loading from './Loading'
+import NotFound from './NotFound'
 
-export default class App extends React.Component {
+const determineHowToLoad = ({ page }) => typeof page !== 'string' ? () => page() : import(`./${page}`)
+
+const UniversalComponent = universal(determineHowToLoad, {
+  onError: error => {
+    throw error
+  },
+  minDelay: 1200,
+  loading: Loading,
+  error: NotFound
+})
+
+class App extends React.Component {
   render() {
     const { index, done, loading } = this.state
     const page = pages[index]
@@ -19,7 +33,7 @@ export default class App extends React.Component {
         <UsageHero page={page} />
 
         <UniversalComponent
-          page={`components/${page}`}
+          page={page}
           onBefore={this.beforeChange}
           onAfter={this.afterChange}
           onError={this.handleError}
@@ -101,3 +115,5 @@ export default class App extends React.Component {
     return loading ? 'LOADING...' : 'CHANGE PAGE'
   }
 }
+
+export default hot(App)
