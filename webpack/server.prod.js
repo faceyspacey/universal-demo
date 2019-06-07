@@ -28,9 +28,10 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'css-loader/locals',
+            loader: 'css-loader',
             options: {
               modules: true,
+              exportOnlyLocals: true,
               localIdentName: '[name]__[local]--[hash:base64:5]'
             }
           },

@@ -47,10 +47,11 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'css-loader/locals',
+            loader: 'css-loader',
             options: {
               modules: true,
-              localIdentName: '[name]__[local]--[hash:base64:5]'
+              localIdentName: '[name]__[local]--[hash:base64:5]',
+              exportOnlyLocals: true
             }
           },
           {
