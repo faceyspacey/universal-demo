@@ -32,8 +32,10 @@ module.exports = {
         use: [
           {
             loader: ExtractCssChunks.loader,
-            hot: true,
-            reloadAll: true
+            options: {
+              hot: true,
+              reloadAll: true
+            }
           },
           {
             loader: 'css-loader',
