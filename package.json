@@ -27,7 +27,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-universal-component": "^4.0.0",
-    "webpack-dev-middleware": "^3.7.0",
+    "webpack-dev-middleware": "^5.3.4",
     "webpack-flush-chunks": "^2.0.3",
     "snyk": "^1.290.1"
   },
